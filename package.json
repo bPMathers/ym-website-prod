@@ -1,6 +1,6 @@
 {
-    "homepage": "http://bPMathers.github.io/ym-website-staging",
-    "name": "yul-website-3",
+    "homepage": "https://yulmusic.com",
+    "name": "ym-website-prod",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
