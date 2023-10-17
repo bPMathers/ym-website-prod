@@ -83,7 +83,7 @@
         (i.o = function (e, t) {
             return Object.prototype.hasOwnProperty.call(e, t);
         }),
-        (i.p = '/ym-website-prod/');
+        (i.p = '/bpmathers.github.io/ym-website-prod/');
     var l = (this['webpackJsonpyul-website-3'] =
             this['webpackJsonpyul-website-3'] || []),
         a = l.push.bind(l);
