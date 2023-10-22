@@ -1,34 +1,27 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { makeStyles } from '@material-ui/core/styles';
 
 import TeamComponent from '../../Components/Team/TeamComponent';
 import { Typography } from '@material-ui/core';
 import ProjectsComponent from '../../Components/Projects/ProjectsComponent';
 import NathanComponent from '../../Components/Nathan/NathanComponent';
 import CreativeCollaboratorsComponent from '../../Components/CC/CreativeCollaboratorsComponent';
-import NathanComponent2 from '../../Components/Contact/ContactComponent';
-import ContactComponent from '../../Components/Contact/ContactComponent';
 import { projectsData } from '../../Components/Projects/ProjectsData';
 
 const useStyles = makeStyles((theme) => ({
     titleContainer: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'stretch',
-        paddingTop: '3px',
-        marginBottom: '80px',
-        // width: '100px',
-        // height: '100vh', // TODO: find out of to not see head tops when loading
-        // width: 'max-content',
+        // alignItems: 'stretch',
+        // paddingTop: '3px',
+        marginBottom: '30px',
     },
     title: {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: '15px',
-        // marginBottom: '15px',
+        // alignItems: 'center',
+        // marginLeft: '15px',
         color: theme.palette.common.gold,
     },
     subtitleContainer: {
@@ -36,22 +29,20 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: theme.palette.secondary.main,
         color: '#fff',
-        // width: 'max-content',
         padding: '2px 5px',
         marginBottom: '30px',
-        // borderRadius: '5px',
     },
     subtitle: {
-        lineHeight: 1.25,
-        marginLeft: '15px',
+        // lineHeight: 1.25,
+        // marginLeft: '15px',
         letterSpacing: '9px',
+        fontSize: '2rem',
+        fontWeight: 100,
+        color: theme.palette.secondary,
     },
     teamSection: {
-        // marginTop: '80px',
         marginBottom: '50px',
-        // width: '100vw',
     },
     servicesSection: {
         marginBottom: '50px',
@@ -60,12 +51,10 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '50px',
     },
     creativeCollaboratorsSection: {
-        // marginBottom: '50px',
         marginTop: '70px',
     },
     contactSection: {
         marginBottom: '50px',
-        // filter: 'invert(1)',
     },
 }));
 
@@ -80,7 +69,7 @@ const HomePageComponent = () => {
                         variant={'h1'}
                         style={{
                             letterSpacing: '10px',
-                            textShadow: '#6e5e08 1px 0 10px',
+                            textShadow: '#baa11c 1px 0 10px',
                             fontWeight: 400,
                         }}
                     >
@@ -89,10 +78,10 @@ const HomePageComponent = () => {
                 </div>
                 <div className={classes.subtitleContainer}>
                     <Typography
-                        variant={'subtitle1'}
+                        // variant={'subtitle1'}
                         className={classes.subtitle}
                     >
-                        HEARTS AND SPIRIT FROM MONTRÉAL
+                        HEART AND SPIRIT FROM MONTRÉAL
                     </Typography>
                 </div>
                 <NathanComponent />

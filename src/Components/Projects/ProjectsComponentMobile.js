@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
+        marginBottom: '40px',
     },
     projectContainer: {
         display: 'flex',
@@ -99,7 +100,7 @@ const ProjectsComponentMobile = ({ projectsData }) => {
                     <div className={classes.projectsList}>
                         {projectsData
                             .sort((a, b) => a.id - b.id)
-                            .slice(0, 9)
+                            .slice(0, 20)
                             .map((project) => {
                                 return (
                                     <div
@@ -110,11 +111,11 @@ const ProjectsComponentMobile = ({ projectsData }) => {
                                         <ProjectComponentMobile
                                             project={project}
                                         />
-                                        <Typography
+                                        {/* <Typography
                                             className={classes.projectTitle}
                                         >
                                             {project.title}
-                                        </Typography>
+                                        </Typography> */}
                                     </div>
                                 );
                             })}

@@ -12,70 +12,70 @@ import deferlImg from '../../assets/Projects/67 - Productions Déferlantes - Lo
 import biteImg from '../../assets/Projects/BiteSize-Logo.jpg';
 import heliDroneProjImg from '../../assets/Projects/Heli_Drone.jpg';
 import romyImg from '../../assets/Projects/72 - Romy & Aksel Web Campaign - Logo.jpeg';
-import mscImg from '../../assets/Projects/_Processed to 1.53 ratio/22-MSCCruises-Logo.jpg';
-import peiImg from '../../assets/Projects/_Processed to 1.53 ratio/74-PrinceEdwardIsland-Logo.jpg';
-import salesForceImg from '../../assets/Projects/_Processed to 1.53 ratio/10-SalesForce-Logo3.png';
+import mscImg from '../../assets/Projects/_featured/22-MSCCruises-Logo.jpg';
+import peiImg from '../../assets/Projects/_featured/74-PrinceEdwardIsland-Logo.jpg';
+import salesForceImg from '../../assets/Projects/_featured/10-SalesForce-Logo3.png';
 import Andorra2016ProjImg from '../../assets/Projects/Andorra2016.jpg';
 import MasterCard2 from '../../assets/Projects/07-Mastercard-2.jpg';
 import Andorra2015ProjImg from '../../assets/Projects/Andorra2015.jpg';
-import microsoftImg from '../../assets/Projects/_Processed to 1.53 ratio/microsoft2023.jpg';
+import microsoftImg from '../../assets/Projects/_featured/microsoft2023.jpg';
 import Andorra2014ProjImg from '../../assets/Projects/Andorra2014.jpg';
 import deloitteProjImg from '../../assets/Logos/Test/Deloitte - Logo.png';
 import rexelProjImg from '../../assets/Logos/Test/Rexel - Logo.png';
 import tpgProjImg from '../../assets/Logos/Test/tpg-logo4.png';
 import ivanhoeProjImg from '../../assets/Projects/Ivanoe Cambridge - Log.jpeg';
-import skoda4ProjImg from '../../assets/Projects/Skoda4.png';
-import cdsProjImg from '../../assets/Projects/_Processed to 1.53 ratio/CDS-2023.jpg';
+import skoda4ProjImg from '../../assets/Projects/_featured/17-SkodaAuto-Logo2.jpg';
+import cdsProjImg from '../../assets/Projects/_featured/CDS-2023.jpg';
 import clubMedProjImg from '../../assets/Logos/Test/Club Med - Logo.png';
 import hiltonProjImg from '../../assets/Projects/43 - Hilton Hotels and Resorts - Logo.png';
 import sbm3ProjImg from '../../assets/Logos/Test/SBM3.png';
-import oneDropProjImg from '../../assets/Projects/_Processed to 1.53 ratio/OneDrop.jpg';
+import oneDropProjImg from '../../assets/Projects/_featured/OneDrop.jpg';
 import wefProjImg from '../../assets/Logos/Test/World Economic Forum - Logo2.png';
-import sunLifeProjImg from '../../assets/Logos/Test/Sunlife Logo.png';
+import sunLifeProjImg from '../../assets/Projects/_featured/13-SunLife-Logo.jpg';
 import cnProjImg from '../../assets/Logos/Test/Canadian National Railway - Logo.png';
 import c2ProjImg from '../../assets/Logos/Test/C2 - Logo.png';
-import dubaiProjImg from '../../assets/Projects/_Processed to 1.53 ratio/Dubai-Mall.jpg';
-import nbaProjImg from '../../assets/Projects/_Processed to 1.53 ratio/01-NBA-Logo.jpg';
-import ydlmProjImg from '../../assets/Projects/_Processed to 1.53 ratio/Sardine-Run-02.jpg';
+import dubaiProjImg from '../../assets/Projects/_featured/12-TheDubaiMall-Logo.jpg';
+import nbaProjImg from '../../assets/Projects/_featured/01-NBA-Logo.jpg';
+import ydlmProjImg from '../../assets/Projects/_featured/Sardine-Run-02.jpg';
 import ydlm2ProjImg from '../../assets/Projects/Sardine-Run-01.jpg';
 import boccaProjImg from '../../assets/Projects/Bôcca - Poster.jpg';
 import nicolasProjImg from '../../assets/Projects/Champagne Nicolas Feuillate - Campagne monde equilibriste.jpg';
-import fifaProjImg from '../../assets/Projects/_Processed to 1.53 ratio/02-FIFA-Logo2.png';
-import astanaProjImg from '../../assets/Projects/_Processed to 1.53 ratio/Astana_Christian-Lagueux_Benjamin-Proulx-Mathers_YUL-MUSIC_Composer_Montréal-721x471.jpg';
-import laxProjImg from '../../assets/Projects/_Processed to 1.53 ratio/LAX-2.jpg';
+import fifaProjImg from '../../assets/Projects/_featured/02-FIFA-Logo2.png';
+import astanaProjImg from '../../assets/Projects/_featured/Astana_Christian-Lagueux_Benjamin-Proulx-Mathers_YUL-MUSIC_Composer_Montréal-721x471.jpg';
+import laxProjImg from '../../assets/Projects/_featured/20-LAX.jpg';
 import mjProjImg from '../../assets/Projects/Michael-Jackson-The-Immortal-World-Tour-by-Cirque-du-Soleil_YUL-MUSIC-Christian-Lagueux-Benjamin-Proulx-Mathers-Sébastien-Laurendeau.jpg';
-import mtlChProjImg from '../../assets/Projects/_Processed to 1.53 ratio/MontrealCanadiens-Logo.jpg';
-import csaProjImg from '../../assets/Logos/Test/CSA-2023 - Logo.png';
+import mtlChProjImg from '../../assets/Projects/_featured/MontrealCanadiens-Logo.jpg';
+import csaProjImg from '../../assets/Projects/_featured/19-CSA.jpg';
 import bakuProjImg from '../../assets/Projects/4-Stadium-BAKU-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
-import q50ProjImg from '../../assets/Projects/AutoShow2013_InfinitiQ50.jpg';
-import sapProjImg from '../../assets/Projects/SAP-721x471.jpg';
+import q50ProjImg from '../../assets/Projects/_featured/16-InifinityCar-Logo.jpg';
+import sapProjImg from '../../assets/Projects/_featured/14-SAP-Logo.jpg';
 import timProjImg from '../../assets/Projects/20131203-Tims-Exterior.jpg';
 import biionProjImg from '../../assets/Projects/Biion-2-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
-import bomb3ProjImg from '../../assets/Projects/bomb-3-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
+import bomb3ProjImg from '../../assets/Projects/_featured/18-bombardier-plane.jpg';
 import bomb6ProjImg from '../../assets/Projects/bomb-6-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
 import bomb7ProjImg from '../../assets/Projects/bomb-7-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
-import bulgariProjImg from '../../assets/Projects/_Processed to 1.53 ratio/09-Bulgari-Logo.png';
+import bulgariProjImg from '../../assets/Projects/_featured/09-Bulgari-Logo.png';
 import cocProjImg from '../../assets/Projects/COC-MTL-2.jpg';
 import coc3rojImg from '../../assets/Projects/Olympic-Rings-Montreal-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
-import courchevelProjImg from '../../assets/Projects/_Processed to 1.53 ratio/courchevel-night-1-721x471.jpg';
+import courchevelProjImg from '../../assets/Projects/_featured/courchevel-night-1-721x471.jpg';
 import courch5ProjImg from '../../assets/Projects/Courchevel-5-1024x640.jpg';
 import glade2ProjImg from '../../assets/Projects/glade-2-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
 import glade3ProjImg from '../../assets/Projects/glade-3-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
 import glade4ProjImg from '../../assets/Projects/glade-4-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
-import mfProjImg from '../../assets/Projects/Logo-MF-noir-et-jaune.jpg';
+import mfProjImg from '../../assets/Projects/_featured/04-MomentFactory-Logo.jpg';
 import magnum2ProjImg from '../../assets/Projects/Magnum-Logo-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
 import poppinsProjImg from '../../assets/Projects/Mary-poppins-High-Res2-1.jpg';
 import nucleusProjImg from '../../assets/Projects/NUCLEUS-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
 import sidLeeProjImg from '../../assets/Projects/SID-LEE3-Benjamin-Proulx-Mathers-Christian-Lagueux-YUL-MUSIC-Montreal-Composer.jpg';
-import eyProjImg from '../../assets/Projects/EY-MainRoom.jpg';
+import eyProjImg from '../../assets/Projects/_featured/15-Ernst&Young-Logo.jpg';
 import diriyah1ProjImg from '../../assets/Projects/Diriyah1.jpg';
 import diriyah2ProjImg from '../../assets/Projects/Diriyah2.jpg';
 import masterCardProjImg from '../../assets/Projects/07-Mastercard-BlackLogo.jpg';
 import iona1ProjImg from '../../assets/Projects/Iona1.jpg';
 import iona2ProjImg from '../../assets/Projects/Iona2.jpg';
 import iona3ProjImg from '../../assets/Projects/Iona3.jpg';
-import tMobileProjImg from '../../assets/Projects/TMobileArena.jpg';
-import googleProjImg from '../../assets/Projects/_Processed to 1.53 ratio/08-Google-Logo.png';
+import tMobileProjImg from '../../assets/Projects/_featured/11-T-Mobile-Logo-2.jpg';
+import googleProjImg from '../../assets/Projects/_featured/08-Google-Logo.png';
 
 // TODO: lighthouse
 // TODO: lazyload some stuff ? make sure site does not try to get all images before they are needed
@@ -84,30 +84,30 @@ import googleProjImg from '../../assets/Projects/_Processed to 1.53 ratio/08-Goo
 export const projectsData = [
     {
         id: 1,
-        title: 'NBA All-Star Weekend',
+        title: 'NBA',
         year: 2016,
         location: 'Toronto, Canada',
-        subtitle:
+        subtitle: 'All-Star Weekend',
+        detailedSubtitle:
             'The 2016 NBA All-Star Pregame Show, televised in over 200 countries',
-        detailedSubtitle: undefined,
         categoriesText:
             'Music Composing - Music Producing - Sound Design - Mixing',
         bgImg: nbaProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: { src: 'https://player.vimeo.com/video/157210250' },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/157210250' },
+            },
+        ],
     },
     {
         id: 2,
-        title: 'FIFA U-17 World Cup',
+        title: 'FIFA',
         year: 2012,
         location: 'Baku, Azerbaijan',
-        subtitle:
+        subtitle: 'U-17 World Cup',
+        detailedSubtitle:
             'FIFA U-17 World Cup Opening Ceremony also starring Jennifer Lopez',
-        detailedSubtitle: undefined,
         categoriesText:
             'Music Producing - Music Arrangement - Sound Design - Mixing',
         bgImg: fifaProjImg,
@@ -116,11 +116,11 @@ export const projectsData = [
     {
         id: 3,
         // title: 'Vision by Cirque du Soleil',
-        title: 'Cirque du Soleil in Andorra',
+        title: 'Cirque du Soleil',
         // year: 2016,
         year: 2014 - 2015 - 2016,
         location: 'Andorra',
-        subtitle: 'Mater Natura (2014) - Storia (2015) - Vision (2016)',
+        subtitle: 'Andorra',
         detailedSubtitle: 'Mater Natura (2014) - Storia (2015) - Vision (2016)',
         categoriesText:
             'Music Composing - Music Arrangement - Music Producing - Sound Design - Mixing',
@@ -135,13 +135,13 @@ export const projectsData = [
     },
     {
         id: 4,
-        title: 'Songcheng Theme Park and Moment Factory',
-        altTitle: 'Songcheng and Moment Factory',
+        title: 'Moment Factory',
+        altTitle: 'Moment Factory',
         year: 2017,
         location: 'Hangzhou, China',
-        subtitle:
+        subtitle: 'Songcheng Theme Park',
+        detailedSubtitle:
             'Songcheng, one of the ten biggest theme park groups in the world, has asked Moment Factory to design a multimedia attraction that will put their park in Hangzhou at the forefront of the entertainment world',
-        detailedSubtitle: undefined,
         categoriesText:
             'Music Composing - Sound Design - 360-Degree Spatial Audio - Mixing',
         bgImg: mfProjImg,
@@ -151,29 +151,30 @@ export const projectsData = [
         title: 'Montreal Canadiens',
         year: 2006,
         location: 'Montreal, Canada',
-        subtitle: '2006 Playoff Pregame Soundtrack and live performances',
-        detailedSubtitle: undefined,
+        subtitle: 'Playoff Pregame Soundtrack',
+        detailedSubtitle:
+            '2006 Playoff Pregame Soundtrack and live performances',
         categoriesText:
             'Music Composing - Music Producing - Sound Design - Mixing - Musical Direction ',
         bgImg: mtlChProjImg,
     },
     {
         id: 6,
-        title: 'Microsoft-One Drop Foundation',
+        title: 'Microsoft',
         year: 2014,
         location: 'Montreal, Canada',
-        subtitle:
+        subtitle: 'One Drop Foundation',
+        detailedSubtitle:
             'Microsoft and One Drop are teaming up to promote food security',
-        detailedSubtitle: undefined,
         categoriesText: 'Music Composing - Music Producing - Mixing',
         // bgImg: oneDropProjImg,
         bgImg: microsoftImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: { src: 'https://player.vimeo.com/video/133273251' },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/133273251' },
+            },
+        ],
     },
     {
         id: 29,
@@ -185,14 +186,14 @@ export const projectsData = [
         categoriesText: 'Music Composing - Music Producing - Mixing',
         bgImg: diriyah2ProjImg,
         // possible types: img, video, others?
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/808649228?h=1ed63afd37',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/808649228?h=1ed63afd37',
+                },
+            },
+        ],
     },
     {
         id: 71,
@@ -204,14 +205,14 @@ export const projectsData = [
             "Heli Drone Images - In the Bahamas filming for TV Show Jeter l'ancre",
         categoriesText: 'Music Composing - Mixing',
         bgImg: heliDroneProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/814345333?h=1ed63afd37',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/814345333?h=1ed63afd37',
+                },
+            },
+        ],
     },
     {
         id: 61,
@@ -227,21 +228,21 @@ export const projectsData = [
         title: 'Ernst & Young',
         year: 2022,
         location: 'Chicago, United States',
-        subtitle: 'Ernst & Young - Chicago Special Event',
-        detailedSubtitle: undefined,
+        subtitle: 'Special Event - Chicago',
+        detailedSubtitle: 'Ernst & Young - Chicago Special Event',
         categoriesText:
             'Music Producing - Music Arrangement - Sound Design - Mixing',
         bgImg: eyProjImg,
     },
     {
         id: 7,
-        title: 'Mastercard - Cirque du Soleil Anthem',
-        altTitle: 'Mastercard - CDS Anthem',
+        title: 'Mastercard',
+        altTitle: 'Mastercard',
         year: 2022,
         location: 'North America Campaign',
-        subtitle:
+        subtitle: 'Cirque du Soleil Anthem',
+        detailedSubtitle:
             'Multi-year deal with Cirque du Soleil Entertainment Group to be the official partner of Cirque du Soleil Touring Shows in Canada',
-        detailedSubtitle: undefined,
         categoriesText:
             'Music Producing - Music Arrangement - Sound Design - Mixing',
         bgImg: masterCardProjImg,
@@ -279,8 +280,8 @@ export const projectsData = [
         title: 'Sunlife',
         year: 2021,
         location: 'United States',
-        subtitle: 'Sunlife Promotion Video',
-        detailedSubtitle: undefined,
+        subtitle: 'Promotion Video',
+        detailedSubtitle: 'Sunlife Promotion Video',
         categoriesText: 'Music Producing - Music Arrangement - Mixing',
         bgImg: sunLifeProjImg,
     },
@@ -289,20 +290,20 @@ export const projectsData = [
         title: 'T-Mobile',
         year: 2020,
         location: 'United States',
-        subtitle: 'T-Mobile Holiday Video',
-        detailedSubtitle: undefined,
+        subtitle: 'Holiday Video',
+        detailedSubtitle: 'T-Mobile Holiday Video',
         categoriesText:
             'Music Producing - Music Arrangement - Sound Design - Mixing',
         bgImg: tMobileProjImg,
     },
     {
         id: 14,
-        title: 'SAP Convention',
+        title: 'SAP',
         // altTitle: 'SAP Convention',
         year: '2020, 2018, 2017, 2015, 2013',
         location: 'Various locations, Worldwide',
-        subtitle: 'The SAP convention',
-        detailedSubtitle: undefined,
+        subtitle: 'Worldwide Conventions',
+        detailedSubtitle: 'The SAP Convention',
         categoriesText: 'Music Producing - Music Arrangement - Mixing',
         bgImg: sapProjImg,
     },
@@ -370,14 +371,14 @@ export const projectsData = [
         categoriesText:
             'Music Composing - Music Producing - On site supervision',
         bgImg: boccaProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/808655403?h=aa1ebea41d',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/808655403?h=aa1ebea41d',
+                },
+            },
+        ],
     },
     {
         id: 34,
@@ -401,18 +402,18 @@ export const projectsData = [
         categoriesText: 'Music Producing - Music Arrangement - Mixing',
         bgImg: ivanhoeProjImg,
     },
-    {
-        id: 17,
-        title: 'Skoda Auto',
-        altTitle: 'Skoda Auto (2019)',
-        year: 2019,
-        location: 'Spain',
-        subtitle: 'Cirque du Soleil’s Special Event',
-        detailedSubtitle: undefined,
-        categoriesText:
-            'Music Producing - Music Arrangement - Sound Design - Mixing',
-        bgImg: skoda4ProjImg,
-    },
+    // {
+    //     id: 17,
+    //     title: 'Skoda Auto',
+    //     altTitle: 'Skoda Auto (2019)',
+    //     year: 2019,
+    //     location: 'Spain',
+    //     subtitle: 'Cirque du Soleil’s Special Event',
+    //     detailedSubtitle: undefined,
+    //     categoriesText:
+    //         'Music Producing - Music Arrangement - Sound Design - Mixing',
+    //     bgImg: skoda4ProjImg,
+    // },
     {
         id: 30,
         title: 'Alibaba Single Gala',
@@ -428,6 +429,7 @@ export const projectsData = [
     {
         id: 31,
         title: 'Beijing Parkview Green Inauguration',
+        altTitle: 'Beijing Parkview',
         year: 2013,
         location: 'Beijing, China',
         subtitle: 'Artistic performance for the Parkview Green inauguration.',
@@ -448,14 +450,14 @@ export const projectsData = [
         categoriesText:
             'Music Composing - Music Producing - On site supervision',
         bgImg: sbm3ProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/808652228?h=35840d87b4',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/808652228?h=35840d87b4',
+                },
+            },
+        ],
     },
     {
         id: 72,
@@ -466,14 +468,14 @@ export const projectsData = [
         detailedSubtitle: undefined,
         categoriesText: 'Music Composing - Sound Design - Mixing',
         bgImg: romyImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/814690219',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/814690219',
+                },
+            },
+        ],
     },
     {
         id: 44,
@@ -532,32 +534,32 @@ export const projectsData = [
         detailedSubtitle: undefined,
         categoriesText: 'Music Composing - Sound Design - Mixing ',
         bgImg: biteImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/196015834',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/196015834',
+                },
+            },
+        ],
     },
     {
         id: 8,
-        title: 'Google and Cirque du Soleil',
+        title: 'Google',
         year: 2017,
         location: 'Brussels, Belgium',
-        subtitle:
+        subtitle: 'Europe on Stage',
+        detailedSubtitle:
             'A Cirque du Soleil special event made for the Google private event called Europe on Stage',
-        detailedSubtitle: undefined,
         categoriesText:
             'Music Producing - Music Arrangement - Sound Design - Mixing',
         bgImg: googleProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: { src: 'https://player.vimeo.com/video/204619615' },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/204619615' },
+            },
+        ],
     },
     {
         id: 17.2,
@@ -565,20 +567,20 @@ export const projectsData = [
         altTitle: 'Skoda Auto (2017)',
         year: 2017,
         location: 'Spain',
-        subtitle:
+        subtitle: 'Vision E Concept Launch',
+        detailedSubtitle:
             'Skoda Auto, for the launch of the new Skoda Vision E Concept',
-        detailedSubtitle: undefined,
         categoriesText:
             'Music Producing - Music Arrangement - Sound Design - Mixing',
         bgImg: skoda4ProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/241883171?h=21ce290877',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/241883171?h=21ce290877',
+                },
+            },
+        ],
     },
     {
         id: 38,
@@ -604,13 +606,13 @@ export const projectsData = [
         categoriesText: 'Music Composing - Sound Design - Mixing',
         bgImg: ydlmProjImg,
         extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/240054639?h=20dea6340e',
+                },
+            },
             { type: 'img', data: ydlm2ProjImg },
-            // {
-            //     type: 'video',
-            //     data: {
-            //         src: 'https://player.vimeo.com/video/240054639?h=20dea6340e',
-            //     },
-            // },
             // { type: 'video', data: { src: '' } }, // la descente, besoin de password ?
         ],
     },
@@ -691,12 +693,12 @@ export const projectsData = [
         categoriesText:
             'Additional Music Producing - Additional Music Arrangement - Mixing',
         bgImg: poppinsProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: { src: 'https://player.vimeo.com/video/171801726' },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/171801726' },
+            },
+        ],
     },
     {
         id: 65,
@@ -708,21 +710,21 @@ export const projectsData = [
         detailedSubtitle: undefined,
         categoriesText: 'Music Composing - Sound Design - Mixing',
         bgImg: mobiliaImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: { src: 'https://player.vimeo.com/video/157359901' },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/157359901' },
+            },
+        ],
     },
     {
         id: 9,
         title: 'Bulgari',
         year: 2016,
         location: 'Tokyo, Japan',
-        subtitle:
+        subtitle: 'Collection Lauch - Tokyo',
+        detailedSubtitle:
             'Launch of a new collection for the 50 most prestigious Bulgari clients',
-        detailedSubtitle: undefined,
         categoriesText: 'Music Producing - Music Arrangement - Mixing',
         bgImg: bulgariProjImg,
     },
@@ -731,8 +733,8 @@ export const projectsData = [
         title: 'Sales Force',
         year: 2015,
         location: 'Toronto, Canada',
-        subtitle: 'The Toronto Sales Force promotion event',
-        detailedSubtitle: undefined,
+        subtitle: 'Promotion Event - Toronto',
+        detailedSubtitle: 'The Toronto Sales Force promotion event',
         categoriesText: 'Music Producing - Music Arrangement - Mixing',
         bgImg: salesForceImg,
     },
@@ -766,14 +768,14 @@ export const projectsData = [
         detailedSubtitle: undefined,
         categoriesText: 'Music Composing - Sound Design - Mixing',
         bgImg: doArtImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/89856619',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/89856619',
+                },
+            },
+        ],
     },
     {
         id: 49,
@@ -785,14 +787,14 @@ export const projectsData = [
             'The Great Hall, also known as the Cathedral of Science, is a 7,000 square foot exhibition space enclosed by a 100 foot tall scalloped dalle de verre façade, where 5400 inch-thick panels of cobalt blue glass are cast into concrete tiles and then set into cast-in-place concrete cells. In order to access each of the tiles, an elaborate scaffold has been constructed in the Great Hall, echoing the undulation of the concrete walls with a matrix of metal pipes and wooden planks',
         categoriesText: 'Music Composing - Sound Design - Mixing',
         bgImg: situImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/151970616',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/151970616',
+                },
+            },
+        ],
     },
     {
         id: 66,
@@ -804,34 +806,34 @@ export const projectsData = [
         categoriesText:
             'Music Composing - Music Producing - Sound Design - Mixing',
         bgImg: sidLeeProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/128518658?h=caa4ee603b&title=0&byline=0',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/128518658?h=caa4ee603b&title=0&byline=0',
+                },
+            },
+        ],
     },
     {
         id: 18,
-        title: 'Bombardier Aerospace - Global 7000',
-        altTitle: 'Bombardier - Global 7000',
+        title: 'Bombardier Aerospace',
+        altTitle: 'Bombardier',
         year: 2015,
         location: 'Geneva, Switzerland',
-        subtitle:
+        subtitle: 'Global 7000 Reveal',
+        detailedSubtitle:
             'Bombardier unveils the Global 7000 mock-up at EBACE - The largest in business aviation',
-        detailedSubtitle: undefined,
         categoriesText:
             'Music Composing - Music Producing - Sound Design - Mixing',
         bgImg: bomb3ProjImg,
         extraMedia: [
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/209994952' },
+            },
             { type: 'img', data: bomb6ProjImg },
             { type: 'img', data: bomb7ProjImg },
-            // {
-            //     type: 'video',
-            //     data: { src: 'https://player.vimeo.com/video/209994952' },
-            // },
         ],
     },
     {
@@ -844,12 +846,12 @@ export const projectsData = [
         categoriesText:
             'Music Composing - Music Producing - Sound Design - Mixing',
         bgImg: biionProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: { src: 'https://player.vimeo.com/video/131800532' },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/131800532' },
+            },
+        ],
     },
     {
         id: 33,
@@ -907,12 +909,12 @@ export const projectsData = [
         categoriesText:
             'Music Composing - Music Producing - Sound Design - Mixing',
         bgImg: nucleusProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: { src: 'https://player.vimeo.com/video/90028196' },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/90028196' },
+            },
+        ],
     },
     // {
     //     id: 4430,
@@ -941,14 +943,14 @@ export const projectsData = [
             'Music Composing - Music Producing - Sound Design - Mixing',
         bgImg: glade2ProjImg,
         extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/116108158',
+                },
+            },
             { type: 'img', data: glade3ProjImg },
             { type: 'img', data: glade4ProjImg },
-            // {
-            //     type: 'video',
-            //     data: {
-            //         src: 'https://player.vimeo.com/video/116108158',
-            //     },
-            // },
         ],
     },
     // {
@@ -964,20 +966,20 @@ export const projectsData = [
     // },
     {
         id: 20,
-        title: 'LAX Airport / Moment Factory',
+        title: 'LAX Airport',
         year: 2014,
         location: 'Los Angeles, United States',
-        subtitle:
+        subtitle: 'Moment Factory Installation',
+        detailedSubtitle:
             'LAX Tom Bradley International Terminal. The Largest Immersive Multimedia Installation',
-        detailedSubtitle: undefined,
         categoriesText: 'Music Composing - Music Producing - Mixing',
         bgImg: laxProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: { src: 'https://player.vimeo.com/video/214673610' },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/214673610' },
+            },
+        ],
     },
     {
         id: 36,
@@ -999,20 +1001,20 @@ export const projectsData = [
         detailedSubtitle: undefined,
         categoriesText: 'Music Composing - Music Producing - Mixing',
         bgImg: oneDropProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/136266499?h=4333a17910',
-        //         },
-        //     },
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/89806963?h=7284023a10',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/136266499?h=4333a17910',
+                },
+            },
+            // {
+            //     type: 'video',
+            //     data: {
+            //         src: 'https://player.vimeo.com/video/89806963?h=7284023a10',
+            //     },
+            // },
+        ],
     },
     {
         id: 43,
@@ -1061,19 +1063,19 @@ export const projectsData = [
         title: 'Infinity',
         year: 2013,
         location: 'Detroit, United States',
-        subtitle: 'Infinity for the Q50 Global Reveal',
-        detailedSubtitle: undefined,
+        subtitle: 'Q50 Global Reveal',
+        detailedSubtitle: 'Infinity for the Q50 Global Reveal',
         categoriesText:
             'Music Producing - Music Arrangement - Sound Design - Mixing',
         bgImg: q50ProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/134233531',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/134233531',
+                },
+            },
+        ],
     },
     {
         id: 55.5,
@@ -1155,10 +1157,10 @@ export const projectsData = [
             'Music Producing - Music Arrangement - Sound Design - Mixing',
         bgImg: courchevelProjImg,
         extraMedia: [
-            // {
-            //     type: 'video',
-            //     data: { src: 'https://player.vimeo.com/video/136457217' },
-            // },
+            {
+                type: 'video',
+                data: { src: 'https://player.vimeo.com/video/136457217' },
+            },
             { type: 'img', data: courch5ProjImg },
         ],
     },
@@ -1172,14 +1174,14 @@ export const projectsData = [
             'Danny Elfman assistant with Thierry Angers in Iris, a Cirque du Soleil show in Los Angeles',
         detailedSubtitle: undefined,
         bgImg: irisImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/234518821',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/234518821',
+                },
+            },
+        ],
     },
     {
         id: 74,
@@ -1202,13 +1204,13 @@ export const projectsData = [
         categoriesText:
             'Music Composing - Music Producing - Sound Design - Mixing ',
         bgImg: csaProjImg,
-        // extraMedia: [
-        //     {
-        //         type: 'video',
-        //         data: {
-        //             src: 'https://player.vimeo.com/video/175960386',
-        //         },
-        //     },
-        // ],
+        extraMedia: [
+            {
+                type: 'video',
+                data: {
+                    src: 'https://player.vimeo.com/video/175960386',
+                },
+            },
+        ],
     },
 ];
