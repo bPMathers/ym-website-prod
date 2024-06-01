@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.39dba3c0.chunk.css",
-    "main.js": "/static/js/main.f164c695.chunk.js",
-    "main.js.map": "/static/js/main.f164c695.chunk.js.map",
+    "main.js": "/static/js/main.27c38184.chunk.js",
+    "main.js.map": "/static/js/main.27c38184.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.8e17a364.js",
     "runtime-main.js.map": "/static/js/runtime-main.8e17a364.js.map",
-    "static/js/2.cabc9fc7.chunk.js": "/static/js/2.cabc9fc7.chunk.js",
-    "static/js/2.cabc9fc7.chunk.js.map": "/static/js/2.cabc9fc7.chunk.js.map",
+    "static/js/2.0300e475.chunk.js": "/static/js/2.0300e475.chunk.js",
+    "static/js/2.0300e475.chunk.js.map": "/static/js/2.0300e475.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.39dba3c0.chunk.css.map": "/static/css/main.39dba3c0.chunk.css.map",
-    "static/js/2.cabc9fc7.chunk.js.LICENSE.txt": "/static/js/2.cabc9fc7.chunk.js.LICENSE.txt",
+    "static/js/2.0300e475.chunk.js.LICENSE.txt": "/static/js/2.0300e475.chunk.js.LICENSE.txt",
     "static/media/01-NBA-Logo.c891bff2.jpg": "/static/media/01-NBA-Logo.c891bff2.jpg",
     "static/media/02-FIFA-Logo2.6e57e57b.png": "/static/media/02-FIFA-Logo2.6e57e57b.png",
     "static/media/04-MomentFactory-Logo.07dec684.jpg": "/static/media/04-MomentFactory-Logo.07dec684.jpg",
@@ -133,6 +133,7 @@
     "static/media/Rexel - Logo.97a603cb.png": "/static/media/Rexel - Logo.97a603cb.png",
     "static/media/SAP - Logo2.c42eef75.png": "/static/media/SAP - Logo2.c42eef75.png",
     "static/media/Sales Force - Logo2.19b27994.png": "/static/media/Sales Force - Logo2.19b27994.png",
+    "static/media/Seb7.7ab81436.jpg": "/static/media/Seb7.7ab81436.jpg",
     "static/media/Sid Lee - New Logo2.e1a755e6.png": "/static/media/Sid Lee - New Logo2.e1a755e6.png",
     "static/media/Situ Studio - Logo.e7aa6d9c.png": "/static/media/Situ Studio - Logo.e7aa6d9c.png",
     "static/media/Skoda Auto2 - Logo.829fbfe6.png": "/static/media/Skoda Auto2 - Logo.829fbfe6.png",
@@ -149,8 +150,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8e17a364.js",
-    "static/js/2.cabc9fc7.chunk.js",
+    "static/js/2.0300e475.chunk.js",
     "static/css/main.39dba3c0.chunk.css",
-    "static/js/main.f164c695.chunk.js"
+    "static/js/main.27c38184.chunk.js"
   ]
 }
