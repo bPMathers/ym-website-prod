@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
@@ -173,6 +173,50 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '10px',
         borderRadius: '5px',
     },
+    thumbnailGalleryContainer: {
+        width: '721px',
+        marginTop: '20px',
+        position: 'relative',
+    },
+    thumbnailGalleryScroller: {
+        display: 'flex',
+        flexDirection: 'row',
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        gap: '8px',
+        padding: '8px 0',
+        scrollBehavior: 'smooth',
+        '&::-webkit-scrollbar': {
+            height: '4px',
+        },
+        '&::-webkit-scrollbar-track': {
+            background: 'rgba(255,255,255,0.05)',
+            borderRadius: '2px',
+        },
+        '&::-webkit-scrollbar-thumb': {
+            background: 'rgba(255,255,255,0.2)',
+            borderRadius: '2px',
+        },
+    },
+    thumbnailItem: {
+        flex: '0 0 auto',
+        width: '80px',
+        height: '52px',
+        borderRadius: '4px',
+        objectFit: 'cover',
+        cursor: 'pointer',
+        opacity: 0.5,
+        border: '2px solid transparent',
+        transition: 'opacity 0.2s ease, border-color 0.2s ease, transform 0.2s ease',
+        '&:hover': {
+            opacity: 0.85,
+            transform: 'scale(1.05)',
+        },
+    },
+    thumbnailItemSelected: {
+        opacity: 1,
+        borderColor: theme.palette.common.gold,
+    },
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -192,6 +236,9 @@ export default function ProjectDetailComponent(props) {
 
     const [projectDetail, setProjectDetail] = useState(undefined);
     const [projectVideos, setProjectVideos] = useState([]);
+    const thumbnailScrollerRef = useRef(null);
+    const listRef = useRef(null);
+    const scrollListToCenter = useRef(false);
 
     useEffect(() => {
         setProjectDetail(project);
@@ -203,6 +250,40 @@ export default function ProjectDetailComponent(props) {
             setProjectVideos([]);
         }
     }, [project]);
+
+    // Always center the selected thumbnail in the gallery
+    useEffect(() => {
+        if (project && thumbnailScrollerRef.current) {
+            const selectedIndex = projectsData.findIndex(p => p.id === project.id);
+            const scroller = thumbnailScrollerRef.current;
+            const thumb = scroller.children[selectedIndex];
+            if (thumb) {
+                const thumbLeft = thumb.offsetLeft;
+                const thumbWidth = thumb.offsetWidth;
+                const scrollerWidth = scroller.offsetWidth;
+                scroller.scrollTo({
+                    left: thumbLeft - scrollerWidth / 2 + thumbWidth / 2,
+                    behavior: 'smooth',
+                });
+            }
+        }
+    }, [project, projectsData]);
+
+    // Scroll the left list to center the selected item (only when triggered from thumbnail)
+    useEffect(() => {
+        if (project && listRef.current && scrollListToCenter.current) {
+            const selectedIndex = projectsData.findIndex(p => p.id === project.id);
+            if (selectedIndex !== -1) {
+                listRef.current.scrollToRow(selectedIndex);
+            }
+            scrollListToCenter.current = false;
+        }
+    }, [project, projectsData]);
+
+    const handleThumbnailClick = (index) => {
+        scrollListToCenter.current = true;
+        onSelectItemFromList(index);
+    };
 
     const handleClose = () => {
         onClose();
@@ -308,6 +389,7 @@ export default function ProjectDetailComponent(props) {
                     <div className={classes.containerToBeRenamed}>
                         <div className={classes.listContainer}>
                             <List
+                                ref={listRef}
                                 className={classes.list}
                                 height={600}
                                 rowCount={projectsData.length}
@@ -318,92 +400,115 @@ export default function ProjectDetailComponent(props) {
                         </div>
 
                         {projectDetail && (
-                            <div
-                                className={classes.projectDetailContent}
-                                key={Math.random().toString()}
-                            >
-                                <Typography
-                                    className={classes.title}
-                                    variant={'h2'}
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+                                <div
+                                    className={classes.projectDetailContent}
+                                    key={projectDetail.id}
                                 >
-                                    {projectDetail.title}
-                                </Typography>
-                                <Typography
-                                    className={classes.year}
-                                    variant={'h6'}
-                                >
-                                    ({projectDetail.year})
-                                </Typography>
-                                <div className={classes.separator}></div>
-                                <Typography
-                                    className={classes.subtitle}
-                                    variant={'subtitle2'}
-                                >
-                                    {projectDetail.detailedSubtitle ??
-                                        projectDetail.subtitle}
-                                </Typography>
-                                <div className={classes.separator2}></div>
-                                <Typography
-                                    className={classes.categoriesText}
-                                    variant={'subtitle2'}
-                                >
-                                    {projectDetail.categoriesText}
-                                </Typography>
-                                <div className={classes.detailMediaContainer}>
-                                    {projectVideos.length > 0 &&
-                                        projectVideos.map((video) => {
-                                            return (
-                                                <>
-                                                    <iframe
-                                                        className={
-                                                            classes.detailMediaItem
-                                                        }
-                                                        src={video.data.src}
-                                                        width={
-                                                            video.data.width ??
-                                                            721
-                                                        }
-                                                        height={
-                                                            video.data.height ??
-                                                            405
-                                                        }
-                                                        frameborder="0"
-                                                        allow="autoplay; fullscreen; picture-in-picture"
-                                                        allowFullScreen
-                                                        title={
-                                                            projectDetail.title
-                                                        }
-                                                    ></iframe>
-                                                </>
-                                            );
-                                        })}
-                                    {projectDetail.bgImg &&
-                                        !projectDetail.hideLogo && (
-                                            <img
-                                                src={projectDetail.bgImg}
-                                                className={
-                                                    classes.detailMediaItem
-                                                }
-                                                alt="Project"
-                                            />
-                                        )}
-                                    {projectDetail.extraMedia &&
-                                        projectDetail.extraMedia.map(
-                                            (media, index) => {
-                                                if (media.type === 'img') {
-                                                    return (
-                                                        <img
-                                                            src={media.data}
+                                    <Typography
+                                        className={classes.title}
+                                        variant={'h2'}
+                                    >
+                                        {projectDetail.title}
+                                    </Typography>
+                                    {/* <Typography
+                                        className={classes.year}
+                                        variant={'h6'}
+                                    >
+                                        ({projectDetail.year})
+                                    </Typography> */}
+                                    <div className={classes.separator}></div>
+                                    <Typography
+                                        className={classes.subtitle}
+                                        variant={'subtitle2'}
+                                    >
+                                        {projectDetail.detailedSubtitle ??
+                                            projectDetail.subtitle}
+                                    </Typography>
+                                    <div className={classes.separator2}></div>
+                                    <Typography
+                                        className={classes.categoriesText}
+                                        variant={'subtitle2'}
+                                    >
+                                        {projectDetail.categoriesText}
+                                    </Typography>
+                                    <div className={classes.detailMediaContainer}>
+                                        {projectVideos.length > 0 &&
+                                            projectVideos.map((video) => {
+                                                return (
+                                                    <>
+                                                        <iframe
                                                             className={
                                                                 classes.detailMediaItem
                                                             }
-                                                            alt="media item"
-                                                            key={index}
-                                                        />
-                                                    );
-                                                } else return <></>;
-                                            }
-                                        )}
+                                                            src={video.data.src}
+                                                            width={
+                                                                video.data.width ??
+                                                                721
+                                                            }
+                                                            height={
+                                                                video.data.height ??
+                                                                405
+                                                            }
+                                                            frameborder="0"
+                                                            allow="autoplay; fullscreen; picture-in-picture"
+                                                            allowFullScreen
+                                                            title={
+                                                                projectDetail.title
+                                                            }
+                                                        ></iframe>
+                                                    </>
+                                                );
+                                            })}
+                                        {projectDetail.bgImg &&
+                                            !projectDetail.hideLogo && (
+                                                <img
+                                                    src={projectDetail.bgImg}
+                                                    className={
+                                                        classes.detailMediaItem
+                                                    }
+                                                    alt="Project"
+                                                />
+                                            )}
+                                        {projectDetail.extraMedia &&
+                                            projectDetail.extraMedia.map(
+                                                (media, index) => {
+                                                    if (media.type === 'img') {
+                                                        return (
+                                                            <img
+                                                                src={media.data}
+                                                                className={
+                                                                    classes.detailMediaItem
+                                                                }
+                                                                alt="media item"
+                                                                key={index}
+                                                            />
+                                                        );
+                                                    } else return <></>;
+                                                }
+                                            )}
+                                    </div>
+                                </div>
+                                {/* Horizontal thumbnail gallery - outside keyed div so it persists */}
+                                <div className={classes.thumbnailGalleryContainer}>
+                                    <div
+                                        className={classes.thumbnailGalleryScroller}
+                                        ref={thumbnailScrollerRef}
+                                    >
+                                        {projectsData.map((proj, index) => (
+                                            <img
+                                                key={proj.id}
+                                                src={proj.bgImg}
+                                                alt={proj.title}
+                                                className={clsx(
+                                                    classes.thumbnailItem,
+                                                    proj.id === project?.id &&
+                                                        classes.thumbnailItemSelected
+                                                )}
+                                                onClick={() => handleThumbnailClick(index)}
+                                            />
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         )}

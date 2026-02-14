@@ -95,7 +95,7 @@ export const projectsData = [
         detailedSubtitle:
             'The 2016 NBA All-Star Pregame Show, televised in over 200 countries',
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: nbaProjImg,
         extraMedia: [
             {
@@ -128,7 +128,7 @@ export const projectsData = [
         subtitle: 'Andorra',
         detailedSubtitle: 'Mater Natura (2014) - Storia (2015) - Vision (2016)',
         categoriesText:
-            'Music Composing - Music Arrangement - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Arrangement - Music Producing - Sound Design - Mixing',
         bgImg: cdsProjImg,
         // bgImg: Andorra2016ProjImg,
         // extraMedia: [{ type: 'video', data: { src: '' } }],
@@ -148,7 +148,7 @@ export const projectsData = [
         detailedSubtitle:
             'Songcheng, one of the ten biggest theme park groups in the world, has asked Moment Factory to design a multimedia attraction that will put their park in Hangzhou at the forefront of the entertainment world',
         categoriesText:
-            'Music Composing - Sound Design - 360-Degree Spatial Audio - Mixing',
+            'Music Composition - Sound Design - 360-Degree Spatial Audio - Mixing',
         bgImg: mfProjImg,
         extraMedia: [
             {
@@ -167,7 +167,7 @@ export const projectsData = [
         detailedSubtitle:
             '2006 Playoff Pregame Soundtrack and live performances',
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing - Musical Direction ',
+            'Music Composition - Music Producing - Sound Design - Mixing - Musical Direction ',
         bgImg: mtlChProjImg,
     },
     {
@@ -178,7 +178,7 @@ export const projectsData = [
         subtitle: 'One Drop Foundation',
         detailedSubtitle:
             'Microsoft and One Drop are teaming up to promote food security',
-        categoriesText: 'Music Composing - Music Producing - Mixing',
+        categoriesText: 'Music Composition - Music Producing - Mixing',
         // bgImg: oneDropProjImg,
         bgImg: microsoftImg,
         extraMedia: [
@@ -196,7 +196,7 @@ export const projectsData = [
         location: 'Saudi Arabia',
         subtitle: 'Diriyah Season Opening Ceremony',
         detailedSubtitle: undefined,
-        categoriesText: 'Music Composing - Music Producing - Mixing',
+        categoriesText: 'Music Composition - Music Producing - Mixing',
         bgImg: timeProjImg,
     },
     {
@@ -207,7 +207,7 @@ export const projectsData = [
         location: 'Montreal, Quebec, Remote',
         subtitle: "Hôtels et restos d'exception",
         detailedSubtitle: "Hôtels et restos d'exception TV Show",
-        categoriesText: 'Music Composing - Sound Design - Mixing',
+        categoriesText: 'Music Composition - Sound Design - Mixing',
         bgImg: trioOrangeProjImg,
         extraMedia: [
             {
@@ -227,7 +227,7 @@ export const projectsData = [
         location: 'Montreal, Quebec, Remote',
         subtitle: 'En pays maya',
         detailedSubtitle: 'Geneviève Borne au Mexique “En pays maya” TV Show',
-        categoriesText: 'Music Composing - Sound Design - Mixing',
+        categoriesText: 'Music Composition - Sound Design - Mixing',
         bgImg: trioOrangeProjImg,
         extraMedia: [
             {
@@ -247,7 +247,7 @@ export const projectsData = [
         subtitle: "Filming for TV Show Jeter l'ancre",
         detailedSubtitle:
             "Heli Drone Images - In the Bahamas filming for TV Show Jeter l'ancre",
-        categoriesText: 'Music Composing - Mixing',
+        categoriesText: 'Music Composition - Mixing',
         bgImg: heliDroneProjImg,
         extraMedia: [
             {
@@ -265,7 +265,7 @@ export const projectsData = [
         year: 2022,
         location: 'Montréal, Québec, Canada',
         detailedSubtitle: undefined,
-        categoriesText: 'Music Composing - Music Producing - Mixing',
+        categoriesText: 'Music Composition - Music Producing - Mixing',
         bgImg: c2ProjImg,
     },
     {
@@ -396,7 +396,7 @@ export const projectsData = [
     //     location: 'Montreal, Canada',
     //     subtitle: 'Heli Drone Images - Demo-Reel',
     //     detailedSubtitle: undefined,
-    //     categoriesText: 'Music Composing - Mixing',
+    //     categoriesText: 'Music Composition - Mixing',
     //     // bgImg: masterCardProjImg,
     //     // extraMedia: [
     //     //     {
@@ -417,7 +417,7 @@ export const projectsData = [
             'Cirque du Soleil Events + Experiences brought Cirque du Soleil’s acclaimed brand of theatrical entertainment to Monaco for an exclusive, special performance at the Monte-Carlo Sporting Summer Festival',
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - On site supervision',
+            'Music Composition - Music Producing - On site supervision',
         bgImg: boccaProjImg,
         extraMedia: [
             {
@@ -472,7 +472,7 @@ export const projectsData = [
             "Alibaba's Singles Day is a massive 24-hour shopping extravaganza unlike anything else in the world. In 2018, the event kicked off with a four-hour gala featuring numerous celebrities, including the model Miranda Kerr, the singer Mariah Carey and Cirque du Soleil.",
         detailedSubtitle:
             "The gala is just one way that Alibaba brings drama to online shopping. It's a crucial shot of hectic energy as historic shopping bonanzas like Black Friday lag behind. The Viewers were able to experience the gala live via Youku, as well as across China on two major Chinese TV stations. (500 Millions Viewers)",
-        categoriesText: 'Music Composing - Sound Design - Mixing',
+        categoriesText: 'Music Composition - Sound Design - Mixing',
         bgImg: alibabaImg,
     },
     {
@@ -497,7 +497,7 @@ export const projectsData = [
             "Cirque du Soleil Events + Experiences brought Cirque du Soleil's acclaimed brand of theatrical entertainment to Monaco for an exclusive, special performance at the Monte-Carlo Sporting Summer Festival",
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - On site supervision',
+            'Music Composition - Music Producing - On site supervision',
         bgImg: monaco2018ProjImg2,
         extraMedia: [
             {
@@ -516,7 +516,7 @@ export const projectsData = [
         location: 'Monaco',
         subtitle: 'Romy & Aksel Web Campaign',
         detailedSubtitle: undefined,
-        categoriesText: 'Music Composing - Sound Design - Mixing',
+        categoriesText: 'Music Composition - Sound Design - Mixing',
         bgImg: romyImg,
         extraMedia: [
             {
@@ -583,7 +583,7 @@ export const projectsData = [
         location: 'Montreal, Canada',
         subtitle: 'Merry Montreal Audio Branding',
         detailedSubtitle: undefined,
-        categoriesText: 'Music Composing - Sound Design - Mixing ',
+        categoriesText: 'Music Composition - Sound Design - Mixing ',
         bgImg: biteImg,
         extraMedia: [
             {
@@ -602,7 +602,7 @@ export const projectsData = [
     //     location: 'Montreal, Canada',
     //     subtitle: 'Cirque du Soleil',
     //     detailedSubtitle: 'Grand bal des vins-cœurs and Cirque du Soleil',
-    //     categoriesText: 'Music Composing - Sound Design - Mixing ',
+    //     categoriesText: 'Music Composition - Sound Design - Mixing ',
     //     bgImg: biteImg,
     // },
     {
@@ -667,7 +667,7 @@ export const projectsData = [
             'Mario Cyr is an internationally renowned expedition leader for Arctic and Antarctic missions, a cold-water diving expert and a world-class cinematographer.',
         detailedSubtitle:
             'Mario Cyr is an internationally renowned expedition leader for Arctic and Antarctic missions, a cold-water diving expert and a world-class cinematographer. He has participated in more than 150 films for broadcasters such as National Geographic, Discovery Channel, the BBC, IMAX 3D, Disney Productions, the CBC and David Suzuki, la Société Cousteau, France 2, Arte and NHK Japan',
-        categoriesText: 'Music Composing - Sound Design - Mixing',
+        categoriesText: 'Music Composition - Sound Design - Mixing',
         bgImg: ydlmProjImg,
         extraMedia: [
             {
@@ -701,7 +701,7 @@ export const projectsData = [
         subtitle: undefined,
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Arrangement - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Arrangement - Music Producing - Sound Design - Mixing',
         bgImg: bravuraProjImg,
     },
     {
@@ -722,7 +722,7 @@ export const projectsData = [
     //     subtitle: undefined,
     //     detailedSubtitle: undefined,
     //     categoriesText:
-    //         'Music Composing - Music Arrangement - Music Producing - Sound Design - Mixing',
+    //         'Music Composition - Music Arrangement - Music Producing - Sound Design - Mixing',
     //     bgImg: Andorra2015ProjImg,
     // },
     {
@@ -782,7 +782,7 @@ export const projectsData = [
         subtitle: undefined,
         detailedSubtitle:
             'Opening Soundtrack for the Zac Brown Band’s Great American Road Trip Tour',
-        categoriesText: 'Music Composing - Music Producing - Mixing',
+        categoriesText: 'Music Composition - Music Producing - Mixing',
         bgImg: ZacBrownProjImg,
         // hideLogo: true,
     },
@@ -794,7 +794,7 @@ export const projectsData = [
         location: 'Montreal, Canada',
         subtitle: 'Mobilia - Mobilia 50th Birthday Campaign',
         detailedSubtitle: undefined,
-        categoriesText: 'Music Composing - Sound Design - Mixing',
+        categoriesText: 'Music Composition - Sound Design - Mixing',
         bgImg: mobiliaImg,
         extraMedia: [
             {
@@ -860,7 +860,7 @@ export const projectsData = [
         location: 'Montreal, Canada ',
         subtitle: 'Herakut in Montreal for the Giant Story Book',
         detailedSubtitle: undefined,
-        categoriesText: 'Music Composing - Sound Design - Mixing',
+        categoriesText: 'Music Composition - Sound Design - Mixing',
         bgImg: doArtImg,
         extraMedia: [
             {
@@ -880,7 +880,7 @@ export const projectsData = [
         subtitle: 'Train the Circus Beyond',
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: trainProjImg,
         extraMedia: [
             {
@@ -900,7 +900,7 @@ export const projectsData = [
         subtitle: 'New York Hall of Science, Amplitude Video Project',
         detailedSubtitle:
             'The Great Hall, also known as the Cathedral of Science, is a 7,000 square foot exhibition space enclosed by a 100 foot tall scalloped dalle de verre façade, where 5400 inch-thick panels of cobalt blue glass are cast into concrete tiles and then set into cast-in-place concrete cells. In order to access each of the tiles, an elaborate scaffold has been constructed in the Great Hall, echoing the undulation of the concrete walls with a matrix of metal pipes and wooden planks',
-        categoriesText: 'Music Composing - Sound Design - Mixing',
+        categoriesText: 'Music Composition - Sound Design - Mixing',
         bgImg: situImg,
         extraMedia: [
             {
@@ -920,7 +920,7 @@ export const projectsData = [
         subtitle: 'Sid Lee Entertainment REEL ',
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: sidLeeProjImg,
         extraMedia: [
             {
@@ -942,7 +942,7 @@ export const projectsData = [
         detailedSubtitle:
             'Bombardier unveils the Global 7000 mock-up at EBACE - The largest in business aviation',
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: bomb3ProjImg,
         extraMedia: [
             {
@@ -962,7 +962,7 @@ export const projectsData = [
         subtitle: 'Biion Footwear Web Campaign',
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: biionProjImg,
         extraMedia: [
             {
@@ -980,7 +980,7 @@ export const projectsData = [
         subtitle: 'Canadian Olympic Excellence Day 2015',
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: cocProjImg,
     },
     {
@@ -1013,7 +1013,7 @@ export const projectsData = [
     //     location: 'Worldwide',
     //     subtitle: 'Microsoft One Drop / The One Drop of Life app',
     //     detailedSubtitle: undefined,
-    //     categoriesText: 'Music Composing - Music Producing - Mixing',
+    //     categoriesText: 'Music Composition - Music Producing - Mixing',
     //     bgImg: oneDropProjImg,
     // },
     {
@@ -1025,7 +1025,7 @@ export const projectsData = [
             'Nucleus - Multimedia-installation at Festival Montreal en Lumière',
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: lotoQuebecProjImg,
         extraMedia: [
             {
@@ -1043,7 +1043,7 @@ export const projectsData = [
         subtitle: 'Glade - NYC Stunt and North America Television Campaign',
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: scJohnsonProjImg,
         extraMedia: [
             {
@@ -1063,7 +1063,7 @@ export const projectsData = [
     //     location: 'Worldwide',
     //     subtitle: 'Microsoft One Drop / The One Drop of Life app',
     //     detailedSubtitle: undefined,
-    //     categoriesText: 'Music Composing - Music Producing - Mixing',
+    //     categoriesText: 'Music Composition - Music Producing - Mixing',
     //     bgImg: oneDropProjImg,
     // },
     {
@@ -1074,7 +1074,7 @@ export const projectsData = [
         subtitle: 'Moment Factory Installation',
         detailedSubtitle:
             'LAX Tom Bradley International Terminal. The Largest Immersive Multimedia Installation',
-        categoriesText: 'Music Composing - Music Producing - Mixing',
+        categoriesText: 'Music Composition - Music Producing - Mixing',
         bgImg: laxProjImg,
         extraMedia: [
             {
@@ -1108,7 +1108,7 @@ export const projectsData = [
         location: 'Las Vegas, United States',
         subtitle: 'One Night for One Drop 2014',
         detailedSubtitle: undefined,
-        categoriesText: 'Music Composing - Music Producing - Mixing',
+        categoriesText: 'Music Composition - Music Producing - Mixing',
         bgImg: oneDropProjImg,
         extraMedia: [
             {
@@ -1207,7 +1207,7 @@ export const projectsData = [
         location: 'Worldwide',
         subtitle: 'Transforming Water Into Action Campaign',
         detailedSubtitle: undefined,
-        categoriesText: 'Music Composing - Music Producing - Mixing',
+        categoriesText: 'Music Composition - Music Producing - Mixing',
         bgImg: oneDropProjImg2,
         extraMedia: [
             {
@@ -1226,7 +1226,7 @@ export const projectsData = [
         subtitle: 'Astana City Celebration in Kazakhstan',
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing',
+            'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: astanaProjImg,
     },
     {
@@ -1247,7 +1247,7 @@ export const projectsData = [
     //     location: 'Andorra',
     //     detailedSubtitle: undefined,
     //     categoriesText:
-    //         'Music Composing - Music Arrangement - Music Producing - Sound Design - Mixing',
+    //         'Music Composition - Music Arrangement - Music Producing - Sound Design - Mixing',
     //     bgImg: materNaturaProjImg,
     // },
     {
@@ -1343,7 +1343,7 @@ export const projectsData = [
         subtitle: 'Y2K promotional DVD of the agency',
         detailedSubtitle: undefined,
         categoriesText:
-            'Music Composing - Music Producing - Sound Design - Mixing ',
+            'Music Composition - Music Producing - Sound Design - Mixing ',
         bgImg: csaProjImg,
         extraMedia: [
             {

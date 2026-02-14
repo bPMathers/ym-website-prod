@@ -134,24 +134,6 @@ const ChrisPointFormComponent = () => {
                     Behrouz, Roger Sanchez, David Morales.
                 </Typography>
             </div>
-            <Typography variant="h2" className={classes.title}>
-                PROFESSIONAL EXPERIENCE ON THE LOCAL MUSIC SCENE
-            </Typography>
-            <div className={classes.pointRow}>
-                <Typography variant="body2" className={classes.pointRowText}>
-                    <span className={classes.point}>•</span>Accompanist or
-                    stand-in musician for TV stations house bands: Télé-Québec,
-                    Radio-Canada and TVA.
-                </Typography>
-            </div>
-            <div className={classes.pointRow}>
-                <Typography variant="body2" className={classes.pointRowText}>
-                    <span className={classes.point}>•</span>Accompanist for
-                    numerous artists on the Québec/France scene, such as
-                    Notre-Dame de Paris, Ariane Moffatt,&nbsp;Daniel Bélanger
-                    and Gilles Vigneault, with whom he worked for 12 years.
-                </Typography>
-            </div>
         </div>
     );
 };
