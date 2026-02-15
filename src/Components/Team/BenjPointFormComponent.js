@@ -45,38 +45,47 @@ const BenjPointFormComponent = () => {
             </Typography>
             <div className={classes.pointRow}>
                 <Typography variant="body2" className={classes.pointRowText}>
-                    <span className={classes.point}>•</span>Composer at YUL
-                    MUSIC.
+                    <span className={classes.point}>•</span>Composer at YUL MUSIC, creating music for Cirque du Soleil, Moment Factory, Sid Lee, Loto Québec, Bombardier Aerospace, One Drop Foundation, LAX, and the NBA.
                 </Typography>
             </div>
             <div className={classes.pointRow}>
                 <Typography variant="body2" className={classes.pointRowText}>
-                    <span className={classes.point}>•</span>Music composer
-                    within YUL MUSIC, where he composed music for the Cirque du
-                    Soleil, Moment Factory, Sid Lee, Loto Québec, Bombardier
-                    Aerospace, One Drop Foundation, The Los Angeles Airport
-                    (LAX), the NBA, as well as commercial jingles such as SC
-                    Johnson’s Glade North America television campaign.
+                    <span className={classes.point}>•</span>Composition, arrangements, and sound design for Cirque du Soleil's acro-culinary show <em>Bocca</em>, directed by Pierre Lapointe at Casino de Monte-Carlo (2019).
                 </Typography>
             </div>
             <div className={classes.pointRow}>
                 <Typography variant="body2" className={classes.pointRowText}>
-                    <span className={classes.point}>•</span>Member of the
-                    thrash/folk/roots band Canailles
+                    <span className={classes.point}>•</span>Musical composition, sound design, and spatialization for Moment Factory's <em>Mystic Tree Show</em> at Songcheng Park, Hangzhou, China (2017).
                 </Typography>
             </div>
             <div className={classes.pointRow}>
                 <Typography variant="body2" className={classes.pointRowText}>
-                    <span className={classes.point}>•</span>Musical director,
-                    arranger, music composer and “remixer” for various
-                    large-scale special events for Cirque du Soleil.
+                    <span className={classes.point}>•</span>Guitarist, banjoist, arranger, co-producer and tour manager for the band <strong>Canailles</strong> — 3 albums, 500+ concerts, 10 European tours, GAMIQ Show of the Year award winner (2012).
                 </Typography>
             </div>
             <div className={classes.pointRow}>
                 <Typography variant="body2" className={classes.pointRowText}>
-                    <span className={classes.point}>•</span>Co-composer, live
-                    musician and sound engineer in the Rafales theatre piece
-                    produced by Le Théâtre Incliné
+                    <span className={classes.point}>•</span>Sound exploration for NFB animated short film <em>Aphasie</em> by Marielle Dalpé (2022-2023) and sound design for <em>Sans Objets</em> by Moïa Jobin-Paré (2018-2019).
+                </Typography>
+            </div>
+            <div className={classes.pointRow}>
+                <Typography variant="body2" className={classes.pointRowText}>
+                    <span className={classes.point}>•</span>Keyboardist for Klô Pelgag's Japan tour (2022), guest saxophonist on Lee Paradise's <em>&CO</em> (2022), and guitarist on Phèdre's <em>Eterna</em> (2020).
+                </Typography>
+            </div>
+            <div className={classes.pointRow}>
+                <Typography variant="body2" className={classes.pointRowText}>
+                    <span className={classes.point}>•</span>Sound manager, co-composer, and live performer for the theatre piece <em>Rafales</em> by Théâtre Incliné — 41 performances across France, Acadia, and Quebec.
+                </Typography>
+            </div>
+            <div className={classes.pointRow}>
+                <Typography variant="body2" className={classes.pointRowText}>
+                    <span className={classes.point}>•</span>Musical director and conductor for percussion troupe <strong>Kumpa'nia</strong> (2006-2009) — 500+ shows across Quebec, Ontario, and France.
+                </Typography>
+            </div>
+            <div className={classes.pointRow}>
+                <Typography variant="body2" className={classes.pointRowText}>
+                    <span className={classes.point}>•</span>Film scores and studio work including projects with Robert Marcel Lepage, Olivier Bélisle, Bernard Adamus, and various film composers.
                 </Typography>
             </div>
         </div>
