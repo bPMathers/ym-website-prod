@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
@@ -6,11 +6,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-// import ArrowRight from '@material-ui/icons/ArrowRight';
-// import ArrowLeft from '@material-ui/icons/ArrowLeft';
 import Slide from '@material-ui/core/Slide';
 import { DialogContent } from '@material-ui/core';
-import { List } from 'react-virtualized';
 import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,19 +28,12 @@ const useStyles = makeStyles((theme) => ({
             paddingTop: '0px',
         },
     },
-    projectDetailContent: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        padding: '20px',
-        width: '100%',
-        animation: `$fade 1500ms ease-out`, // Need assigned key on component to work
-    },
     appBar: {
         position: 'relative',
     },
-    containerToBeRenamed: {
+
+    /* ── Layout ── */
+    mainLayout: {
         marginLeft: '40px',
         marginTop: '40px',
         display: 'flex',
@@ -51,78 +41,65 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'flex-start',
         width: '80%',
     },
+
+    /* ── Sidebar list (native DOM, no react-virtualized) ── */
     listContainer: {
-        minWidth: '300px', //this is temp
+        minWidth: '300px',
+        maxWidth: '300px',
         paddingTop: '20px',
+        flexShrink: 0,
     },
     list: {
         padding: '15px',
-        // backgroundColor: '#1d1d1d',
         boxShadow: '0px 0px 10px rgba(255, 255, 255, 0.2)',
         borderRadius: '10px',
-        overflowY: 'scroll',
+        maxHeight: '600px',
+        overflowY: 'auto',
         '&::-webkit-scrollbar': {
             display: 'none',
         },
     },
-    // TODO: maybe need to pass with style prop to prevent flick
     listItem: {
         fontFamily: 'Roboto',
         fontSize: '1rem',
         fontWeight: 400,
         textTransform: 'none',
         color: 'white',
-        maxHeight: '100px',
+        padding: '4px 0',
+        cursor: 'pointer',
+        transition: 'color 0.2s ease',
         '&:hover': {
             fontWeight: 700,
-            cursor: 'pointer',
-            // fontSize: '1.1rem',
         },
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
     },
     listItemSelected: {
-        borderBottom: `1px solid ${theme.palette.common.gold}`,
-    },
-    selectedServiceTab: {
         borderLeft: `2px solid ${theme.palette.common.gold}`,
         paddingLeft: '10px',
-        // borderBottom: `1px solid ${theme.palette.common.gold}`,
-        // paddingBottom: '3px',
-        height: '25px',
-        minWidth: '8px',
-        animation: `$fade 1500ms ease-out`,
         color: theme.palette.common.gold,
         filter: 'brightness(150%)',
         fontWeight: 700,
         textShadow: '#6e5e08 1px 0 10px',
-    },
-    selectedServiceItemTitle: {
-        color: theme.palette.common.gold,
-        animation: `$slide 1000ms `,
+        animation: `$slideIn 400ms ease-out`,
     },
 
-    '@keyframes fade': {
-        '0%': {
-            opacity: 0,
-            // transform: 'translateX(-50%) translateY(-50%)',
-        },
-        '100%': {
-            opacity: 1,
-            // transform: 'translateX(0) translateY(0)',
-        },
+    /* ── Right column ── */
+    rightColumn: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        minWidth: 0,
     },
 
-    '@keyframes slide': {
-        '0%': {
-            // opacity: 0,
-            transform: 'translateX(-5%) translateY(0%)',
-        },
-        '100%': {
-            // opacity: 1,
-            transform: 'translateX(0) translateY(0)',
-        },
+    /* ── Project detail (animated on switch) ── */
+    projectDetailContent: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        padding: '20px',
+        width: '100%',
+        animation: `$fadeIn 800ms ease-out`,
     },
     title: {
         fontSize: '2em',
@@ -130,9 +107,11 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '3px',
         fontWeight: 500,
     },
-    year: {
-        fontSize: '1rem',
-        fontWeight: '300',
+    separator: {
+        backgroundColor: theme.palette.common.gold,
+        height: '3px',
+        width: '30px',
+        margin: '10px 0',
     },
     subtitle: {
         padding: '0px 2em',
@@ -142,24 +121,18 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '10px',
         fontWeight: 400,
     },
+    separator2: {
+        backgroundColor: theme.palette.secondary.main,
+        height: '0.5px',
+        width: '60%',
+        marginBottom: '10px',
+    },
     categoriesText: {
         padding: '0px 2em',
         fontSize: '1.0em',
         marginBottom: '20px',
         width: '80%',
         textAlign: 'center',
-    },
-    separator: {
-        backgroundColor: theme.palette.common.gold,
-        height: '3px',
-        width: '30px',
-        margin: '10px 0',
-    },
-    separator2: {
-        backgroundColor: theme.palette.secondary.main,
-        height: '0.5px',
-        width: '60%',
-        marginBottom: '10px',
     },
     detailMediaContainer: {
         width: '721px',
@@ -173,10 +146,11 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '10px',
         borderRadius: '5px',
     },
+
+    /* ── Thumbnail gallery ── */
     thumbnailGalleryContainer: {
         width: '721px',
         marginTop: '20px',
-        position: 'relative',
     },
     thumbnailGalleryScroller: {
         display: 'flex',
@@ -185,7 +159,6 @@ const useStyles = makeStyles((theme) => ({
         overflowY: 'hidden',
         gap: '8px',
         padding: '8px 0',
-        scrollBehavior: 'smooth',
         '&::-webkit-scrollbar': {
             height: '4px',
         },
@@ -207,7 +180,8 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         opacity: 0.5,
         border: '2px solid transparent',
-        transition: 'opacity 0.2s ease, border-color 0.2s ease, transform 0.2s ease',
+        transition:
+            'opacity 0.25s ease, border-color 0.25s ease, transform 0.2s ease',
         '&:hover': {
             opacity: 0.85,
             transform: 'scale(1.05)',
@@ -217,6 +191,16 @@ const useStyles = makeStyles((theme) => ({
         opacity: 1,
         borderColor: theme.palette.common.gold,
     },
+
+    /* ── Animations ── */
+    '@keyframes fadeIn': {
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+    },
+    '@keyframes slideIn': {
+        from: { transform: 'translateX(-6px)' },
+        to: { transform: 'translateX(0)' },
+    },
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -224,129 +208,91 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function ProjectDetailComponent(props) {
-    const {
-        open,
-        onClose,
-        // onNavigate,
-        projectsData,
-        onSelectItemFromList,
-        project,
-    } = props;
+    const { open, onClose, projectsData, onSelectItemFromList, project } =
+        props;
     const classes = useStyles();
 
     const [projectDetail, setProjectDetail] = useState(undefined);
     const [projectVideos, setProjectVideos] = useState([]);
-    const thumbnailScrollerRef = useRef(null);
-    const listRef = useRef(null);
-    const scrollListToCenter = useRef(false);
 
+    // DOM refs — no react-virtualized, so scrolling actually works
+    const thumbnailScrollerRef = useRef(null);
+    const listContainerRef = useRef(null);
+    const listItemRefs = useRef({});
+    // Track whether selection came from thumbnail gallery or sidebar list
+    const selectionSource = useRef('list'); // 'list' | 'thumbnail'
+
+    // ── Sync detail state ──
     useEffect(() => {
         setProjectDetail(project);
         if (project?.extraMedia) {
             setProjectVideos(
-                project.extraMedia?.filter((em) => em.type === 'video')
+                project.extraMedia.filter((em) => em.type === 'video')
             );
         } else {
             setProjectVideos([]);
         }
     }, [project]);
 
-    // Always center the selected thumbnail in the gallery
+    // ── Center the selected thumbnail in the strip ──
     useEffect(() => {
-        if (project && thumbnailScrollerRef.current) {
-            const selectedIndex = projectsData.findIndex(p => p.id === project.id);
-            const scroller = thumbnailScrollerRef.current;
-            const thumb = scroller.children[selectedIndex];
-            if (thumb) {
-                const thumbLeft = thumb.offsetLeft;
-                const thumbWidth = thumb.offsetWidth;
-                const scrollerWidth = scroller.offsetWidth;
-                scroller.scrollTo({
-                    left: thumbLeft - scrollerWidth / 2 + thumbWidth / 2,
-                    behavior: 'smooth',
-                });
-            }
-        }
-    }, [project, projectsData]);
-
-    // Scroll the left list to center the selected item (only when triggered from thumbnail)
-    useEffect(() => {
-        if (project && listRef.current && scrollListToCenter.current) {
-            const selectedIndex = projectsData.findIndex(p => p.id === project.id);
-            if (selectedIndex !== -1) {
-                listRef.current.scrollToRow(selectedIndex);
-            }
-            scrollListToCenter.current = false;
-        }
-    }, [project, projectsData]);
-
-    const handleThumbnailClick = (index) => {
-        scrollListToCenter.current = true;
-        onSelectItemFromList(index);
-    };
-
-    const handleClose = () => {
-        onClose();
-    };
-
-    // const handleNavigate = (direction) => () => {
-    //     onNavigate(direction);
-    // };
-
-    const renderRow = ({ index, style, key }) => {
-        return (
-            <div onClick={() => onSelectItemFromList(index)}>
-                {/* TODO: Add styling to the selected list item as was done in the services page, with the slide animation */}
-                {/* <div
-                    className={
-                        service.id === selectedService.id
-                            ? classes.selectedServiceTab
-                            : ''
-                    }
-                ></div> */}
-                {/* <div
-                    className={
-                        projectsData[index].id === project.id
-                            ? classes.selectedServiceTab
-                            : ''
-                    }
-                ></div> */}
-                <Typography
-                    key={key}
-                    style={style}
-                    className={clsx(
-                        classes.listItem,
-                        projectsData[index].id === project.id
-                            ? classes.selectedServiceItemTitle
-                            : ''
-                    )}
-                >
-                    <div
-                        className={
-                            projectsData[index].id === project.id
-                                ? classes.selectedServiceTab
-                                : undefined
-                        }
-                    >
-                        {projectsData[index].altTitle ??
-                            projectsData[index].title}
-                    </div>
-                </Typography>
-            </div>
+        if (!project || !thumbnailScrollerRef.current) return;
+        const selectedIndex = projectsData.findIndex(
+            (p) => p.id === project.id
         );
-    };
+        if (selectedIndex === -1) return;
+        const scroller = thumbnailScrollerRef.current;
+        const thumb = scroller.children[selectedIndex];
+        if (!thumb) return;
+        const scrollLeft =
+            thumb.offsetLeft -
+            scroller.offsetWidth / 2 +
+            thumb.offsetWidth / 2;
+        scroller.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    }, [project, projectsData]);
 
-    const getRowHeight = ({ index }) => {
-        return 30;
-        // const titleLength = projectsData[index]?.title?.length;
+    // ── Center the sidebar list item vertically (only from thumbnail clicks) ──
+    useEffect(() => {
+        if (!project || selectionSource.current !== 'thumbnail') return;
+        const el = listItemRefs.current[project.id];
+        const container = listContainerRef.current;
+        if (!el || !container) return;
 
-        // if (titleLength < 36) return 35;
+        const targetScroll =
+            el.offsetTop -
+            container.offsetHeight / 2 +
+            el.offsetHeight / 2;
+        container.scrollTo({ top: targetScroll, behavior: 'smooth' });
 
-        // return 65;
-    };
+        selectionSource.current = 'list'; // reset
+    }, [project]);
+
+    // ── Handlers ──
+    const handleThumbnailClick = useCallback(
+        (index) => {
+            selectionSource.current = 'thumbnail';
+            onSelectItemFromList(index);
+        },
+        [onSelectItemFromList]
+    );
+
+    const handleListClick = useCallback(
+        (index) => {
+            selectionSource.current = 'list';
+            onSelectItemFromList(index);
+        },
+        [onSelectItemFromList]
+    );
+
+    const handleClose = () => onClose();
+
+    // ── Ref callback for list items ──
+    const setListItemRef = useCallback((id, el) => {
+        if (el) listItemRefs.current[id] = el;
+    }, []);
 
     return (
-        <div className={classes.container}>
+        <div>
             <Dialog
                 fullScreen
                 fullWidth={true}
@@ -368,98 +314,88 @@ export default function ProjectDetailComponent(props) {
                             >
                                 <CloseIcon />
                             </IconButton>
-                            {/* <IconButton
-                                edge="start"
-                                color="inherit"
-                                onClick={handleNavigate('left')}
-                                aria-label="Navigate Left"
-                            >
-                                <ArrowLeft />
-                            </IconButton>
-                            <IconButton
-                                edge="start"
-                                color="inherit"
-                                onClick={handleNavigate('right')}
-                                aria-label="Navigate Right"
-                            >
-                                <ArrowRight />
-                            </IconButton> */}
                         </Toolbar>
                     </AppBar>
-                    <div className={classes.containerToBeRenamed}>
+
+                    <div className={classes.mainLayout}>
+                        {/* ── Sidebar list ── */}
                         <div className={classes.listContainer}>
-                            <List
-                                ref={listRef}
+                            <div
                                 className={classes.list}
-                                height={600}
-                                rowCount={projectsData.length}
-                                rowRenderer={renderRow}
-                                width={300}
-                                rowHeight={getRowHeight}
-                            ></List>
+                                ref={listContainerRef}
+                            >
+                                {projectsData.map((proj, index) => (
+                                    <div
+                                        key={proj.id}
+                                        ref={(el) =>
+                                            setListItemRef(proj.id, el)
+                                        }
+                                        className={clsx(
+                                            classes.listItem,
+                                            proj.id === project?.id &&
+                                                classes.listItemSelected
+                                        )}
+                                        onClick={() => handleListClick(index)}
+                                    >
+                                        {proj.altTitle ?? proj.title}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
 
-                        {projectDetail && (
-                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+                        {/* ── Right column ── */}
+                        <div className={classes.rightColumn}>
+                            {/* Detail content — keyed by id for fade animation */}
+                            {projectDetail && (
                                 <div
                                     className={classes.projectDetailContent}
                                     key={projectDetail.id}
                                 >
                                     <Typography
                                         className={classes.title}
-                                        variant={'h2'}
+                                        variant="h2"
                                     >
                                         {projectDetail.title}
                                     </Typography>
-                                    {/* <Typography
-                                        className={classes.year}
-                                        variant={'h6'}
-                                    >
-                                        ({projectDetail.year})
-                                    </Typography> */}
-                                    <div className={classes.separator}></div>
+                                    <div className={classes.separator} />
                                     <Typography
                                         className={classes.subtitle}
-                                        variant={'subtitle2'}
+                                        variant="subtitle2"
                                     >
                                         {projectDetail.detailedSubtitle ??
                                             projectDetail.subtitle}
                                     </Typography>
-                                    <div className={classes.separator2}></div>
+                                    <div className={classes.separator2} />
                                     <Typography
                                         className={classes.categoriesText}
-                                        variant={'subtitle2'}
+                                        variant="subtitle2"
                                     >
                                         {projectDetail.categoriesText}
                                     </Typography>
-                                    <div className={classes.detailMediaContainer}>
-                                        {projectVideos.length > 0 &&
-                                            projectVideos.map((video) => {
-                                                return (
-                                                    <>
-                                                        <iframe
-                                                            className={
-                                                                classes.detailMediaItem
-                                                            }
-                                                            src={video.data.src}
-                                                            width={
-                                                                video.data.width ??
-                                                                721
-                                                            }
-                                                            height={
-                                                                video.data.height ??
-                                                                405
-                                                            }
-                                                            frameborder="0"
-                                                            allow="autoplay; fullscreen; picture-in-picture"
-                                                            allowFullScreen
-                                                            title={
-                                                                projectDetail.title
-                                                            }
-                                                        ></iframe>
-                                                    </>
-                                                );
-                                            })}
+                                    <div
+                                        className={
+                                            classes.detailMediaContainer
+                                        }
+                                    >
+                                        {projectVideos.map((video, i) => (
+                                            <iframe
+                                                key={i}
+                                                className={
+                                                    classes.detailMediaItem
+                                                }
+                                                src={video.data.src}
+                                                width={
+                                                    video.data.width ?? 721
+                                                }
+                                                height={
+                                                    video.data.height ?? 405
+                                                }
+                                                frameBorder="0"
+                                                allow="autoplay; fullscreen; picture-in-picture"
+                                                allowFullScreen
+                                                title={projectDetail.title}
+                                            />
+                                        ))}
                                         {projectDetail.bgImg &&
                                             !projectDetail.hideLogo && (
                                                 <img
@@ -470,48 +406,54 @@ export default function ProjectDetailComponent(props) {
                                                     alt="Project"
                                                 />
                                             )}
-                                        {projectDetail.extraMedia &&
-                                            projectDetail.extraMedia.map(
-                                                (media, index) => {
-                                                    if (media.type === 'img') {
-                                                        return (
-                                                            <img
-                                                                src={media.data}
-                                                                className={
-                                                                    classes.detailMediaItem
-                                                                }
-                                                                alt="media item"
-                                                                key={index}
-                                                            />
-                                                        );
-                                                    } else return <></>;
-                                                }
-                                            )}
+                                        {projectDetail.extraMedia
+                                            ?.filter(
+                                                (m) => m.type === 'img'
+                                            )
+                                            .map((media, i) => (
+                                                <img
+                                                    key={i}
+                                                    src={media.data}
+                                                    className={
+                                                        classes.detailMediaItem
+                                                    }
+                                                    alt="media item"
+                                                />
+                                            ))}
                                     </div>
                                 </div>
-                                {/* Horizontal thumbnail gallery - outside keyed div so it persists */}
-                                <div className={classes.thumbnailGalleryContainer}>
-                                    <div
-                                        className={classes.thumbnailGalleryScroller}
-                                        ref={thumbnailScrollerRef}
-                                    >
-                                        {projectsData.map((proj, index) => (
-                                            <img
-                                                key={proj.id}
-                                                src={proj.bgImg}
-                                                alt={proj.title}
-                                                className={clsx(
-                                                    classes.thumbnailItem,
-                                                    proj.id === project?.id &&
-                                                        classes.thumbnailItemSelected
-                                                )}
-                                                onClick={() => handleThumbnailClick(index)}
-                                            />
-                                        ))}
-                                    </div>
+                            )}
+
+                            {/* Thumbnail gallery — always mounted, never remounts */}
+                            <div
+                                className={
+                                    classes.thumbnailGalleryContainer
+                                }
+                            >
+                                <div
+                                    className={
+                                        classes.thumbnailGalleryScroller
+                                    }
+                                    ref={thumbnailScrollerRef}
+                                >
+                                    {projectsData.map((proj, index) => (
+                                        <img
+                                            key={proj.id}
+                                            src={proj.bgImg}
+                                            alt={proj.title}
+                                            className={clsx(
+                                                classes.thumbnailItem,
+                                                proj.id === project?.id &&
+                                                    classes.thumbnailItemSelected
+                                            )}
+                                            onClick={() =>
+                                                handleThumbnailClick(index)
+                                            }
+                                        />
+                                    ))}
                                 </div>
                             </div>
-                        )}
+                        </div>
                     </div>
                 </DialogContent>
             </Dialog>

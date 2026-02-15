@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
@@ -27,13 +27,23 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        // scrollY: 'auto'
     },
     dialogContentRoot: {
         '&:first-child': {
             paddingTop: '0px',
         },
     },
+    appBar: {
+        position: 'relative',
+    },
+    projectDetailContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+    },
+
+    /* ── Detail content (animated per project) ── */
     projectDetailContent: {
         display: 'flex',
         flexDirection: 'column',
@@ -41,42 +51,19 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         padding: '20px',
         width: '100%',
-        animation: `$fade 1500ms ease-out`, // Need assigned key on component to work
+        animation: `$fadeIn 800ms ease-out`,
     },
-    appBar: {
-        position: 'relative',
-        // position: 'absolute',
-        // overflow: 'hidden',
-        // top: 0,
-        // backgroundColor: 'red',
-        // left: 0,
-
-        // top: 'auto',
-        // bottom: 0,
-        // float: 'left',
-        // display: 'block',
-    },
-    projectDetailContainer: {
-        // border: '2px solid red',
-        // marginLeft: '40px',
-        // marginTop: '40px',
-        // width: '95%',
-        display: 'flex',
-        flexDirection: 'row',
-        // flex: 'space-between',
-        justifyContent: 'flex-start',
-        // width: '80%',
-    },
-
     title: {
         fontSize: '1.5em',
         textAlign: 'center',
         marginBottom: '3px',
         fontWeight: 500,
     },
-    year: {
-        fontSize: '1rem',
-        fontWeight: '300',
+    separator: {
+        backgroundColor: theme.palette.common.gold,
+        height: '3px',
+        width: '30px',
+        margin: '10px 0',
     },
     subtitle: {
         padding: '0px 2em',
@@ -86,24 +73,18 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '10px',
         fontWeight: 400,
     },
+    separator2: {
+        backgroundColor: theme.palette.secondary.main,
+        height: '0.5px',
+        width: '60%',
+        marginBottom: '10px',
+    },
     categoriesText: {
         padding: '0px 2em',
         fontSize: '1.0em',
         marginBottom: '20px',
         width: '80%',
         textAlign: 'center',
-    },
-    separator: {
-        backgroundColor: theme.palette.common.gold,
-        height: '3px',
-        width: '30px',
-        margin: '10px 0',
-    },
-    separator2: {
-        backgroundColor: theme.palette.secondary.main,
-        height: '0.5px',
-        width: '60%',
-        marginBottom: '10px',
     },
     detailMediaContainer: {
         width: projectWidth,
@@ -117,10 +98,11 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '10px',
         borderRadius: '5px',
     },
+
+    /* ── Thumbnail gallery ── */
     thumbnailGalleryContainer: {
         width: projectWidth,
         marginTop: '16px',
-        position: 'relative',
     },
     thumbnailGalleryScroller: {
         display: 'flex',
@@ -129,7 +111,6 @@ const useStyles = makeStyles((theme) => ({
         overflowY: 'hidden',
         gap: '6px',
         padding: '6px 0',
-        scrollBehavior: 'smooth',
         WebkitOverflowScrolling: 'touch',
         '&::-webkit-scrollbar': {
             height: '3px',
@@ -152,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer',
         opacity: 0.5,
         border: '2px solid transparent',
-        transition: 'opacity 0.2s ease, border-color 0.2s ease',
+        transition: 'opacity 0.25s ease, border-color 0.25s ease',
         '&:hover': {
             opacity: 0.85,
         },
@@ -161,6 +142,12 @@ const useStyles = makeStyles((theme) => ({
         opacity: 1,
         borderColor: theme.palette.common.gold,
     },
+
+    /* ── Animations ── */
+    '@keyframes fadeIn': {
+        from: { opacity: 0 },
+        to: { opacity: 1 },
+    },
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -168,61 +155,63 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function ProjectDetailComponentMobile(props) {
-    const { open, onClose, onNavigate, project, projectsData, onSelectItemFromList } = props;
+    const {
+        open,
+        onClose,
+        onNavigate,
+        project,
+        projectsData,
+        onSelectItemFromList,
+    } = props;
     const classes = useStyles();
 
     const [projectDetail, setProjectDetail] = useState(undefined);
     const [projectVideos, setProjectVideos] = useState([]);
     const thumbnailScrollerRef = useRef(null);
 
+    // ── Sync detail state ──
     useEffect(() => {
         setProjectDetail(project);
         if (project?.extraMedia) {
             setProjectVideos(
-                project.extraMedia?.filter((em) => em.type === 'video')
+                project.extraMedia.filter((em) => em.type === 'video')
             );
         } else {
             setProjectVideos([]);
         }
     }, [project]);
 
-    // Always center the selected thumbnail in the gallery
+    // ── Center the selected thumbnail in the strip ──
     useEffect(() => {
-        if (project && projectsData && thumbnailScrollerRef.current) {
-            const selectedIndex = projectsData.findIndex(p => p.id === project.id);
-            const scroller = thumbnailScrollerRef.current;
-            const thumb = scroller.children[selectedIndex];
-            if (thumb) {
-                const thumbLeft = thumb.offsetLeft;
-                const thumbWidth = thumb.offsetWidth;
-                const scrollerWidth = scroller.offsetWidth;
-                scroller.scrollTo({
-                    left: thumbLeft - scrollerWidth / 2 + thumbWidth / 2,
-                    behavior: 'smooth',
-                });
-            }
-        }
+        if (!project || !projectsData || !thumbnailScrollerRef.current) return;
+        const selectedIndex = projectsData.findIndex(
+            (p) => p.id === project.id
+        );
+        if (selectedIndex === -1) return;
+        const scroller = thumbnailScrollerRef.current;
+        const thumb = scroller.children[selectedIndex];
+        if (!thumb) return;
+        const scrollLeft =
+            thumb.offsetLeft -
+            scroller.offsetWidth / 2 +
+            thumb.offsetWidth / 2;
+        scroller.scrollTo({ left: scrollLeft, behavior: 'smooth' });
     }, [project, projectsData]);
 
-    const handleThumbnailClick = (index) => {
-        if (onSelectItemFromList) {
-            onSelectItemFromList(index);
-        }
-    };
+    const handleThumbnailClick = useCallback(
+        (index) => {
+            if (onSelectItemFromList) onSelectItemFromList(index);
+        },
+        [onSelectItemFromList]
+    );
 
-    const handleClose = () => {
-        onClose();
-    };
-
-    const handleNavigate = (direction) => () => {
-        onNavigate(direction);
-    };
+    const handleClose = () => onClose();
+    const handleNavigate = (direction) => () => onNavigate(direction);
 
     return (
-        <div className={classes.container}>
+        <div>
             <Dialog
                 fullScreen
-                // fullWidth={true}
                 open={open}
                 TransitionComponent={Transition}
                 className={classes.dialog}
@@ -269,114 +258,104 @@ export default function ProjectDetailComponentMobile(props) {
                             </div>
                         </Toolbar>
                     </AppBar>
+
                     <div className={classes.projectDetailContainer}>
+                        {/* Detail content — keyed by id for fade animation */}
                         {projectDetail && (
-                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-                                <div
-                                    className={classes.projectDetailContent}
-                                    key={projectDetail.id}
+                            <div
+                                className={classes.projectDetailContent}
+                                key={projectDetail.id}
+                            >
+                                <Typography
+                                    className={classes.title}
+                                    variant="h2"
                                 >
-                                    <Typography
-                                        className={classes.title}
-                                        variant={'h2'}
-                                    >
-                                        {projectDetail.title}
-                                    </Typography>
-                                    {/* <Typography
-                                        className={classes.year}
-                                        variant={'h6'}
-                                    >
-                                        ({projectDetail.year})
-                                    </Typography> */}
-                                    <div className={classes.separator}></div>
-                                    <Typography
-                                        className={classes.subtitle}
-                                        variant={'subtitle2'}
-                                    >
-                                        {projectDetail.detailedSubtitle ??
-                                            projectDetail.subtitle}
-                                    </Typography>
-                                    <div className={classes.separator2}></div>
-                                    <Typography
-                                        className={classes.categoriesText}
-                                        variant={'subtitle2'}
-                                    >
-                                        {projectDetail.categoriesText}
-                                    </Typography>
-                                    <div className={classes.detailMediaContainer}>
-                                        {projectVideos.length > 0 &&
-                                            projectVideos.map((video) => {
-                                                return (
-                                                    <>
-                                                        <iframe
-                                                            className={
-                                                                classes.detailMediaItem
-                                                            }
-                                                            src={video.data.src}
-                                                            width={projectWidth}
-                                                            height={projectHeight}
-                                                            frameborder="0"
-                                                            allow="autoplay; fullscreen; picture-in-picture"
-                                                            allowFullScreen
-                                                            title={
-                                                                projectDetail.title
-                                                            }
-                                                        ></iframe>
-                                                    </>
-                                                );
-                                            })}
-                                        {projectDetail.bgImg &&
-                                            !projectDetail.hideLogo && (
-                                                <img
-                                                    src={projectDetail.bgImg}
-                                                    className={
-                                                        classes.detailMediaItem
-                                                    }
-                                                    alt="Project"
-                                                />
-                                            )}
-                                        {projectDetail.extraMedia &&
-                                            projectDetail.extraMedia.map(
-                                                (media, index) => {
-                                                    if (media.type === 'img') {
-                                                        return (
-                                                            <img
-                                                                src={media.data}
-                                                                className={
-                                                                    classes.detailMediaItem
-                                                                }
-                                                                alt="media item"
-                                                                key={index}
-                                                            />
-                                                        );
-                                                    } else return <></>;
+                                    {projectDetail.title}
+                                </Typography>
+                                <div className={classes.separator} />
+                                <Typography
+                                    className={classes.subtitle}
+                                    variant="subtitle2"
+                                >
+                                    {projectDetail.detailedSubtitle ??
+                                        projectDetail.subtitle}
+                                </Typography>
+                                <div className={classes.separator2} />
+                                <Typography
+                                    className={classes.categoriesText}
+                                    variant="subtitle2"
+                                >
+                                    {projectDetail.categoriesText}
+                                </Typography>
+                                <div className={classes.detailMediaContainer}>
+                                    {projectVideos.map((video, i) => (
+                                        <iframe
+                                            key={i}
+                                            className={classes.detailMediaItem}
+                                            src={video.data.src}
+                                            width={projectWidth}
+                                            height={projectHeight}
+                                            frameBorder="0"
+                                            allow="autoplay; fullscreen; picture-in-picture"
+                                            allowFullScreen
+                                            title={projectDetail.title}
+                                        />
+                                    ))}
+                                    {projectDetail.bgImg &&
+                                        !projectDetail.hideLogo && (
+                                            <img
+                                                src={projectDetail.bgImg}
+                                                className={
+                                                    classes.detailMediaItem
                                                 }
-                                            )}
-                                    </div>
+                                                alt="Project"
+                                            />
+                                        )}
+                                    {projectDetail.extraMedia
+                                        ?.filter((m) => m.type === 'img')
+                                        .map((media, i) => (
+                                            <img
+                                                key={i}
+                                                src={media.data}
+                                                className={
+                                                    classes.detailMediaItem
+                                                }
+                                                alt="media item"
+                                            />
+                                        ))}
                                 </div>
-                                {/* Horizontal thumbnail gallery - outside keyed div so it persists */}
-                                {projectsData && (
-                                    <div className={classes.thumbnailGalleryContainer}>
-                                        <div
-                                            className={classes.thumbnailGalleryScroller}
-                                            ref={thumbnailScrollerRef}
-                                        >
-                                            {projectsData.map((proj, index) => (
-                                                <img
-                                                    key={proj.id}
-                                                    src={proj.bgImg}
-                                                    alt={proj.title}
-                                                    className={clsx(
-                                                        classes.thumbnailItem,
-                                                        proj.id === project?.id &&
-                                                            classes.thumbnailItemSelected
-                                                    )}
-                                                    onClick={() => handleThumbnailClick(index)}
-                                                />
-                                            ))}
-                                        </div>
-                                    </div>
-                                )}
+                            </div>
+                        )}
+
+                        {/* Thumbnail gallery — always mounted, never remounts */}
+                        {projectsData && (
+                            <div
+                                className={
+                                    classes.thumbnailGalleryContainer
+                                }
+                            >
+                                <div
+                                    className={
+                                        classes.thumbnailGalleryScroller
+                                    }
+                                    ref={thumbnailScrollerRef}
+                                >
+                                    {projectsData.map((proj, index) => (
+                                        <img
+                                            key={proj.id}
+                                            src={proj.bgImg}
+                                            alt={proj.title}
+                                            className={clsx(
+                                                classes.thumbnailItem,
+                                                proj.id === project?.id &&
+                                                    classes.thumbnailItemSelected
+                                            )}
+                                            onClick={() =>
+                                                handleThumbnailClick(index)
+                                            }
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         )}
                     </div>
