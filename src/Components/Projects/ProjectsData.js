@@ -93,7 +93,7 @@ export const projectsData = [
         location: 'Toronto, Canada',
         subtitle: 'All-Star Weekend',
         detailedSubtitle:
-            'The 2016 NBA All-Star Pregame Show, televised in over 200 countries',
+            'The NBA All-Star Pregame Show, televised in over 200 countries',
         categoriesText:
             'Music Composition - Music Producing - Sound Design - Mixing',
         bgImg: nbaProjImg,
@@ -165,7 +165,7 @@ export const projectsData = [
         location: 'Montreal, Canada',
         subtitle: 'Playoff Pregame Soundtrack',
         detailedSubtitle:
-            '2006 Playoff Pregame Soundtrack and live performances',
+            'Playoff Pregame Soundtrack and live performances',
         categoriesText:
             'Music Composition - Music Producing - Sound Design - Mixing - Musical Direction ',
         bgImg: mtlChProjImg,
@@ -273,9 +273,9 @@ export const projectsData = [
         title: 'Ernst & Young',
         year: 2022,
         location: 'Chicago, United States',
-        subtitle: '2022 Innovation Realized Global Summit',
+        subtitle: 'Innovation Realized Global Summit',
         detailedSubtitle:
-            'Ernst & Young - 2022 Innovation Realized Global Summit',
+            'Ernst & Young - Innovation Realized Global Summit',
         categoriesText:
             'Music Producing - Music Arrangement - Sound Design - Mixing',
         bgImg: eyProjImg,
@@ -372,7 +372,7 @@ export const projectsData = [
         title: 'World Economic Forum',
         year: '2020, 2019, 2017, 2016',
         location: 'Switzerland',
-        subtitle: 'Artistic performance for the BMO vip clients',
+        subtitle: 'Artistic performance for the BMO vip clients - Multi-year deal',
         detailedSubtitle: undefined,
         categoriesText:
             'Music Producing - Music Arrangement - Sound Design - Mixing',
@@ -977,7 +977,7 @@ export const projectsData = [
         title: 'Canadian Olympic Committee',
         year: 2015,
         location: 'Montreal, Canada',
-        subtitle: 'Canadian Olympic Excellence Day 2015',
+        subtitle: 'Canadian Olympic Excellence Day',
         detailedSubtitle: undefined,
         categoriesText:
             'Music Composition - Music Producing - Sound Design - Mixing',
@@ -1106,7 +1106,7 @@ export const projectsData = [
         title: 'One Night for One Drop',
         year: 2014,
         location: 'Las Vegas, United States',
-        subtitle: 'One Night for One Drop 2014',
+        subtitle: 'One Night for One Drop',
         detailedSubtitle: undefined,
         categoriesText: 'Music Composition - Music Producing - Mixing',
         bgImg: oneDropProjImg,
@@ -1326,7 +1326,7 @@ export const projectsData = [
     },
     {
         id: 74,
-        title: 'Prince Edward Island - 2010 Charlottetown Summerfest',
+        title: 'Prince Edward Island - Charlottetown Summerfest',
         altTitle: 'PEI Summerfest',
         year: 2010,
         location: 'Prince Edward Island, Canada',
