@@ -126,7 +126,7 @@ export const projectsData = [
         year: 2014 - 2015 - 2016,
         location: 'Andorra',
         subtitle: 'Andorra',
-        detailedSubtitle: 'Mater Natura (2014) - Storia (2015) - Vision (2016)',
+        detailedSubtitle: 'Mater Natura - Storia - Vision',
         categoriesText:
             'Music Composition - Music Arrangement - Music Producing - Sound Design - Mixing',
         bgImg: cdsProjImg,

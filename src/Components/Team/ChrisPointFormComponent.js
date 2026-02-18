@@ -111,13 +111,6 @@ const ChrisPointFormComponent = () => {
             </div>
             <div className={classes.pointRow}>
                 <Typography variant="body2" className={classes.pointRowText}>
-                    <span className={classes.point}>•</span>Responsible for the
-                    recording studio located at Cirque du Soleil headquarters
-                    during the summer seasons.
-                </Typography>
-            </div>
-            <div className={classes.pointRow}>
-                <Typography variant="body2" className={classes.pointRowText}>
                     <span className={classes.point}>•</span>Permanent member of
                     Drum Jungle, based in Los Angeles, with some of the best
                     musicians in the industry from Los Angeles and New York,
