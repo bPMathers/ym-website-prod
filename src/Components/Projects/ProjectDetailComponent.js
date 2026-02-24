@@ -10,6 +10,8 @@ import Slide from '@material-ui/core/Slide';
 import { DialogContent } from '@material-ui/core';
 import clsx from 'clsx';
 
+/* ─────────────────────────── Styles ─────────────────────────── */
+
 const useStyles = makeStyles((theme) => ({
     dialog: {
         backgroundColor: theme.palette.primary.main,
@@ -42,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
         width: '80%',
     },
 
-    /* ── Sidebar list (native DOM, no react-virtualized) ── */
+    /* ── Sidebar list ── */
     listContainer: {
         minWidth: '300px',
         maxWidth: '300px',
@@ -79,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
         filter: 'brightness(150%)',
         fontWeight: 700,
         textShadow: '#6e5e08 1px 0 10px',
-        animation: `$slideIn 400ms ease-out`,
+        animation: '$slideIn 400ms ease-out',
     },
 
     /* ── Right column ── */
@@ -99,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         padding: '20px',
         width: '100%',
-        animation: `$fadeIn 800ms ease-out`,
+        animation: '$fadeIn 800ms ease-out',
     },
     title: {
         fontSize: '2em',
@@ -203,26 +205,72 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+/* ─────────────────────── Transition ─────────────────────── */
+
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
+
+/* ───────────── Helper: centre an element inside a scroll container ───────────── */
+
+function scrollToCenter(container, element, smooth) {
+    if (!container || !element) return;
+    // getBoundingClientRect is always accurate regardless of CSS positioning
+    const containerRect = container.getBoundingClientRect();
+    const elementRect = element.getBoundingClientRect();
+    const delta =
+        elementRect.left +
+        elementRect.width / 2 -
+        (containerRect.left + containerRect.width / 2);
+    container.scrollBy({
+        left: delta,
+        behavior: smooth ? 'smooth' : 'auto',
+    });
+}
+
+function scrollToCenterVertical(container, element, smooth) {
+    if (!container || !element) return;
+    const containerRect = container.getBoundingClientRect();
+    const elementRect = element.getBoundingClientRect();
+    const delta =
+        elementRect.top +
+        elementRect.height / 2 -
+        (containerRect.top + containerRect.height / 2);
+    container.scrollBy({
+        top: delta,
+        behavior: smooth ? 'smooth' : 'auto',
+    });
+}
+
+/* ─────────────────────── Component ─────────────────────── */
 
 export default function ProjectDetailComponent(props) {
     const { open, onClose, projectsData, onSelectItemFromList, project } =
         props;
     const classes = useStyles();
 
+    /* ── Local state ── */
     const [projectDetail, setProjectDetail] = useState(undefined);
     const [projectVideos, setProjectVideos] = useState([]);
 
-    // DOM refs — no react-virtualized, so scrolling actually works
-    const thumbnailScrollerRef = useRef(null);
-    const listContainerRef = useRef(null);
+    /* ── Refs ── */
+    const thumbnailRefs = useRef({});
     const listItemRefs = useRef({});
-    // Track whether selection came from thumbnail gallery or sidebar list
+    const listContainerRef = useRef(null);
+    const thumbnailScrollerRef = useRef(null);
     const selectionSource = useRef('list'); // 'list' | 'thumbnail'
+    const pendingScrollTimer = useRef(null);
 
-    // ── Sync detail state ──
+    /* ── Stable ref-setter callbacks ── */
+    const setThumbnailRef = useCallback((id, el) => {
+        if (el) thumbnailRefs.current[id] = el;
+    }, []);
+
+    const setListItemRef = useCallback((id, el) => {
+        if (el) listItemRefs.current[id] = el;
+    }, []);
+
+    /* ── Sync detail state when project prop changes ── */
     useEffect(() => {
         setProjectDetail(project);
         if (project?.extraMedia) {
@@ -234,40 +282,40 @@ export default function ProjectDetailComponent(props) {
         }
     }, [project]);
 
-    // ── Center the selected thumbnail in the strip ──
+    /* ── Centre the selected thumbnail whenever project changes ── */
     useEffect(() => {
-        if (!project || !thumbnailScrollerRef.current) return;
-        const selectedIndex = projectsData.findIndex(
-            (p) => p.id === project.id
-        );
-        if (selectedIndex === -1) return;
-        const scroller = thumbnailScrollerRef.current;
-        const thumb = scroller.children[selectedIndex];
-        if (!thumb) return;
-        const scrollLeft =
-            thumb.offsetLeft -
-            scroller.offsetWidth / 2 +
-            thumb.offsetWidth / 2;
-        scroller.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-    }, [project, projectsData]);
+        if (!project) return;
 
-    // ── Center the sidebar list item vertically (only from thumbnail clicks) ──
-    useEffect(() => {
-        if (!project || selectionSource.current !== 'thumbnail') return;
-        const el = listItemRefs.current[project.id];
-        const container = listContainerRef.current;
-        if (!el || !container) return;
+        // Clear any pending scroll from rapid clicks
+        clearTimeout(pendingScrollTimer.current);
 
-        const targetScroll =
-            el.offsetTop -
-            container.offsetHeight / 2 +
-            el.offsetHeight / 2;
-        container.scrollTo({ top: targetScroll, behavior: 'smooth' });
+        // Small delay lets React commit the DOM update so
+        // getBoundingClientRect returns the correct position.
+        pendingScrollTimer.current = setTimeout(() => {
+            const thumbEl = thumbnailRefs.current[project.id];
+            const scroller = thumbnailScrollerRef.current;
+            scrollToCenter(scroller, thumbEl, true);
+        }, 80);
 
-        selectionSource.current = 'list'; // reset
+        return () => clearTimeout(pendingScrollTimer.current);
     }, [project]);
 
-    // ── Handlers ──
+    /* ── Centre the sidebar list item (only from thumbnail clicks) ── */
+    useEffect(() => {
+        if (!project || selectionSource.current !== 'thumbnail') return;
+
+        const timerId = setTimeout(() => {
+            const el = listItemRefs.current[project.id];
+            const container = listContainerRef.current;
+            scrollToCenterVertical(container, el, true);
+        }, 80);
+
+        selectionSource.current = 'list'; // reset
+
+        return () => clearTimeout(timerId);
+    }, [project]);
+
+    /* ── Handlers ── */
     const handleThumbnailClick = useCallback(
         (index) => {
             selectionSource.current = 'thumbnail';
@@ -286,10 +334,7 @@ export default function ProjectDetailComponent(props) {
 
     const handleClose = () => onClose();
 
-    // ── Ref callback for list items ──
-    const setListItemRef = useCallback((id, el) => {
-        if (el) listItemRefs.current[id] = el;
-    }, []);
+    /* ─────────────────────── Render ─────────────────────── */
 
     return (
         <div>
@@ -345,7 +390,7 @@ export default function ProjectDetailComponent(props) {
 
                         {/* ── Right column ── */}
                         <div className={classes.rightColumn}>
-                            {/* Detail content — keyed by id for fade animation */}
+                            {/* Detail content — keyed by id so fade resets */}
                             {projectDetail && (
                                 <div
                                     className={classes.projectDetailContent}
@@ -424,7 +469,7 @@ export default function ProjectDetailComponent(props) {
                                 </div>
                             )}
 
-                            {/* Thumbnail gallery — always mounted, never remounts */}
+                            {/* Thumbnail gallery — always mounted */}
                             <div
                                 className={
                                     classes.thumbnailGalleryContainer
@@ -439,6 +484,9 @@ export default function ProjectDetailComponent(props) {
                                     {projectsData.map((proj, index) => (
                                         <img
                                             key={proj.id}
+                                            ref={(el) =>
+                                                setThumbnailRef(proj.id, el)
+                                            }
                                             src={proj.bgImg}
                                             alt={proj.title}
                                             className={clsx(

@@ -168,6 +168,12 @@ export default function ProjectDetailComponentMobile(props) {
     const [projectDetail, setProjectDetail] = useState(undefined);
     const [projectVideos, setProjectVideos] = useState([]);
     const thumbnailScrollerRef = useRef(null);
+    const thumbnailRefs = useRef({});
+    const pendingScrollTimer = useRef(null);
+
+    const setThumbnailRef = useCallback((id, el) => {
+        if (el) thumbnailRefs.current[id] = el;
+    }, []);
 
     // ── Sync detail state ──
     useEffect(() => {
@@ -183,19 +189,28 @@ export default function ProjectDetailComponentMobile(props) {
 
     // ── Center the selected thumbnail in the strip ──
     useEffect(() => {
-        if (!project || !projectsData || !thumbnailScrollerRef.current) return;
-        const selectedIndex = projectsData.findIndex(
-            (p) => p.id === project.id
-        );
-        if (selectedIndex === -1) return;
-        const scroller = thumbnailScrollerRef.current;
-        const thumb = scroller.children[selectedIndex];
-        if (!thumb) return;
-        const scrollLeft =
-            thumb.offsetLeft -
-            scroller.offsetWidth / 2 +
-            thumb.offsetWidth / 2;
-        scroller.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+        if (!project || !projectsData) return;
+
+        clearTimeout(pendingScrollTimer.current);
+
+        pendingScrollTimer.current = setTimeout(() => {
+            const scroller = thumbnailScrollerRef.current;
+            const thumbEl = thumbnailRefs.current[project.id];
+            if (!scroller || !thumbEl) return;
+
+            const containerRect = scroller.getBoundingClientRect();
+            const elementRect = thumbEl.getBoundingClientRect();
+            const delta =
+                elementRect.left +
+                elementRect.width / 2 -
+                (containerRect.left + containerRect.width / 2);
+            scroller.scrollBy({
+                left: delta,
+                behavior: 'smooth',
+            });
+        }, 80);
+
+        return () => clearTimeout(pendingScrollTimer.current);
     }, [project, projectsData]);
 
     const handleThumbnailClick = useCallback(
@@ -343,6 +358,9 @@ export default function ProjectDetailComponentMobile(props) {
                                     {projectsData.map((proj, index) => (
                                         <img
                                             key={proj.id}
+                                            ref={(el) =>
+                                                setThumbnailRef(proj.id, el)
+                                            }
                                             src={proj.bgImg}
                                             alt={proj.title}
                                             className={clsx(
